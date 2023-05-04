@@ -178,6 +178,9 @@
               
               import pandas as pd 
               import numpy as np
+
+              Common_Nouns ="january debt est dec big than who use jun jan feb mar apr may jul agust dec oct nov sep dec  product continue one two three four five please thanks find helpful week job experience women girl apology read show eve  knowledge benefit appointment street way staff salon discount gift cost thing world close party love letters rewards offers special close  page week dollars voucher gifts vouchers welcome therefore march nights need name pleasure show sisters thank menu today always time needs welcome march february april may june jully aguast september october november december day year month minute second secodns".split(" ")
+
               
               def Scrapper1(element):
                   if element.parent.name in ['html','style', 'script', 'head',  '[document]','img']:
@@ -209,320 +212,353 @@
                 title.append(soup.title.string)
                 return(title,urls)
               
-              def Web(URL):
+              def Web_Funtion(URL):
                 req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
                 con = urllib.request.urlopen(req)
                 html= con.read()  
-              
-               Raw_HTML_Soup = BeautifulSoup(html, 'lxml') 
+                Raw_HTML_Soup = BeautifulSoup(html, 'lxml') 
                
                 raw =Scrapper2(html)
                 Clean_Text = Scrapper3(raw) 
-                return(Clean_Text,Raw_HTML_Soup)
-          <h2>Calling WEb Function
+                return(Clean_Text,Raw_HTML_Soup) 
+              </code>
+              </pre>
 
-            (Clean_Text,Raw_HTML_Soup) = Web("http://bbc.com")
-            print (Clean_Text)</h2>
-            </code>
-            <div class ="output_example">
-              BBC - Homepage
-Homepage Accessibility links Skip to content Accessibility Help BBC Account Notifications Home News Sport Weather iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel Worklife Travel Future Culture TV Weather Sounds More menu
-Search BBC
-Search BBC
-Home News Sport Weather iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel Worklife Travel Future Culture TV Weather Sounds Close menu
-BBC Homepage
-Putin should be sentenced for 'criminal actions' - Zelensky
-The Ukrainian president calls for the creation of a new war tribunal as he addresses The Hague.
-Europe
-Putin should be sentenced for 'criminal actions' - Zelensky
-Teen made 'kill list' for Serbia school attack
-Europe
-Teen made 'kill list' for Serbia school attack
-Erdogan rival pledges to restore Turkish democracy
-Europe
-Erdogan rival pledges to restore Turkish democracy
-What kings wore from Tudor times to now
-Culture
-What kings wore from Tudor times to now
-The true story of the Kentucky Derby
-Travel
-The true story of the Kentucky Derby
-News
-Ros Atkins on... the videos showing 'Kremlin attack'
-The BBC’s Analysis Editor looks at the footage circulating on Russian social media.
-Europe
-Ros Atkins on... the videos showing 'Kremlin attack'
-Pioneering actress killed in Sudan cross-fire
-Asia Abdelmajid, famous for her stage performances, is buried in the grounds of a kindergarten.
-Africa
-Pioneering actress killed in Sudan cross-fire
-Carrie Fisher family row eclipses Hollywood honour
-The Star Wars actress's siblings are not invited to her Hollywood Walk of Fame ceremony.
-Entertainment & Arts
-Carrie Fisher family row eclipses Hollywood honour
-Sport
-Premier League news and your views on Haaland, Allardyce
-Manchester City beat West Ham to top table again as Erling Haaland sets new Premier League record, plus Crystal Palace among news conferences.
-Football
-Premier League news and your views on Haaland, Allardyce
-Why Bellingham's Real move makes 'perfect sense'
-England midfielder Jude Bellingham joining Real Madrid would be in keeping with their strategy of buying the world's best young players, says Andy West.
-European Football
-Why Bellingham's Real move makes 'perfect sense'
-A tour of a lost world, before football changed forever
-Thirty-five years ago, a father and son set off to tour every Football League ground. They brought back a record of a disappearing era and a lasting relationship.
-Sport
-A tour of a lost world, before football changed forever
-Coronation of King Charles III
-Your full guide to how Coronation day will unfold
-Processions, ancient rituals, a fly-past and the crowning moment
-UK
-Your full guide to how Coronation day will unfold
-A chicken dish made for the queen
-The famous dish has been reimagined by a variety of chefs over the years
-World's Table
-A chicken dish made for the queen
-Charles is King of 15 countries - but for how much longer?
-BBC correspondents describe the mood in nations where King Charles is still head of state and the chances of replacing the monarchy any time soon
-World
-Charles is King of 15 countries - but for how much longer?
-London Weather
-Edit
-Thu
-19°C
-12°C
-Fri
-18°C
-10°C
-Sat
-16°C
-12°C
-Sun
-19°C
-10°C
-Visit Reel
-The most amazing videos from the BBC
-The truth about the Kama Sutra
-Why do French men pee on the street?
-Is this the real face of Elizabeth I?
-Editor’s Picks
-Do you own too many clothes?
-The 'sufficient' wardrobe
-Future
-Do you own too many clothes?
-A regal scone made for King Charles III
-Shaped into a crown, it's infused with Darjeeling and honey
-Travel
-A regal scone made for King Charles III
-Can remote-work gossip backfire?
-Why venting about your boss just became much riskier
-Worklife
-Can remote-work gossip backfire?
-The rappers risking the death penalty
-How hip-hop has soundtracked Iran's protest era
-Culture
-The rappers risking the death penalty
-Why The Wicker Man has divided opinion for 50 years
-The folk horror film has been dividing audiences since it slipped into British cinemas
-UK
-Why The Wicker Man has divided opinion for 50 years
-Row over Met Gala's Karl Lagerfeld tribute
-Actress Jameela Jamil criticises the A-list event for honouring the controversial designer
-Entertainment & Arts
-Row over Met Gala's Karl Lagerfeld tribute
-The good and bad of ADHD content on TikTok
-Content about the condition gets billions of views, but is it driving too many to self-diagnose?
-Newsbeat
-The good and bad of ADHD content on TikTok
-Latest Business News
-1
-Shell reports stronger than expected profits
-2
-US raises interest rates to highest in 16 years
-3
-Investors sue over Credit Suisse collapse
-4
-China tourism rebounds above pre-pandemic levels
-5
-Branson feared 'losing everything' in pandemic
-Future Planet
-Solutions for a sustainable world
-The revival of a historic Italian fruit
-The first climate-resilient nation?
-A major positive climate tipping point
-Technology of Business
-Business
-Why there is serious money in kitchen fumes
-Why there is serious money in kitchen fumes
-ADVERTISEMENT
-New Tech Economy
-Business
-The people turning time into a currency
-The people turning time into a currency
-Featured video
-Inside hospital where oxygen runs out
-The BBC reports from an Afghan hospital where dozens of children are critically ill with preventable diseases.
-Asia
-Inside hospital where oxygen runs out
-Recommended
-Latest
-Inside hospital where oxygen runs out
-Asia
-Inside hospital where oxygen runs out
-Which route will the King take to his...
-UK
-Which route will the King take to his Coronation?
-Watch man arrested at Buckingham Palace gates
-UK
-Watch man arrested at Buckingham Palace gates
-Branson on 'painful' media coverage during...
-Business
-Branson on 'painful' media coverage during pandemic
-Watch first public outing for King's golden...
-UK
-Watch first public outing for King's golden carriages
-One-minute World News
-Video
-One-minute World News
-Minnesota senator appears topless during Zoom...
-US & Canada
-Minnesota senator appears topless during Zoom vote
-Princess Anne on what type of king her...
-US & Canada
-Princess Anne on what type of king her brother is
-Ryan Reynolds takes selfies on Wrexham...
-Wales
-Ryan Reynolds takes selfies on Wrexham winners' bus
-BBC World Service
-On Air:
-The Newsroom
-More around the BBC
-Lizzo thanks 'King of Flutes' for Met Gala duet
-The US star pays tribute to her idol Sir James Galway after the Belfast musician performs with her...
-Northern Ireland
-Lizzo thanks 'King of Flutes' for Met Gala duet
-Meta putting child users at risk, regulator says
-Technology
-Meta putting child users at risk, regulator says
-Europe's new weather satellite takes first photos
-Science & Environment
-Europe's new weather satellite takes first photos
-US approves world's first RSV vaccine
-US & Canada
-US approves world's first RSV vaccine
-The 17 most eye-catching looks at the Met Gala
-Entertainment & Arts
-The 17 most eye-catching looks at the Met Gala
-Australia to ban recreational vaping
-Australia
-Australia to ban recreational vaping
-Can Morocco solve Europe’s energy crisis?
-Business
-Can Morocco solve Europe’s energy crisis?
-From Our Correspondents
-New Alzheimer's drug slows disease by a third By James Gallagher
-Afghanistan: 'Nothing we can do but watch babies die' By Yogita Limaye
-Is your job at risk from AI? By Faisal Islam
-Is climate change killing Australian wine? By Tiffanie Turnbull
-Hero sled dog Balto's unique genes revealed By Madeline Halpert
-On-air fistfights, fetishes and raucous crowds By Sam Cabral
-Is the UK a bad place for tech firms? By Zoe Kleinman
-Living on the frontlines of a US-China flashpoint By Laura Bicker
-Global Trade
-Peru's 'fast and furious' blueberry boom
-Business
-Peru's 'fast and furious' blueberry boom
-New Tech Economy
-The wedding tech now at the heart of couples' nuptials
-Business
-The wedding tech now at the heart of couples' nuptials
-World in pictures
-Parasols and prayers: Africa's top shots
-Africa
-Parasols and prayers: Africa's top shots
-The photos that chronicle the cost of dying
-Scotland
-The photos that chronicle the cost of dying
-Len Goodman obituary: From the East End to Strictly stardom
-Entertainment & Arts
-Len Goodman obituary: From the East End to Strictly stardom
-Penarth: Nofio gyda'r wawr yn y môr // Sea swimming at dawn
-Cylchgrawn
-Penarth: Nofio gyda'r wawr yn y môr // Sea swimming at dawn
-In pictures: Muslims around the world celebrate Eid
-In Pictures
-In pictures: Muslims around the world celebrate Eid
-BBC in other languages
-Russian
-Война в Украине: Зеленский выступил в Гааге; Кремль обвиняет США в атаке беспилотниками
-Spanish
-"La vida de mi hijo fue sacrificada por las ganancias petroleras de BP"
-More Languages
-Arabic
-عربي
-Azeri
-AZƏRBAYCAN
-Bangla
-বাংলা
-Burmese
-မြန်မာ
-Chinese
-中文网
-French
-AFRIQUE
-Hausa
-HAUSA
-Hindi
-हिन्दी
-Indonesian
-INDONESIA
-Japanese
-日本語
-Kinyarwanda
-GAHUZA
-Kirundi
-KIRUNDI
-Kyrgyz
-Кыргыз
-Marathi
-मराठी
-Nepali
-नेपाली
-Pashto
-پښتو
-Persian
-فارسی
-Portuguese
-BRASIL
-Russian
-НА РУССКОМ
-Sinhala
-සිංහල
-Somali
-SOMALI
-Spanish
-MUNDO
-Swahili
-SWAHILI
-Tamil
-தமிழ்
-Turkish
-TÜRKÇE
-Ukrainian
-УКРАЇНСЬКA
-Urdu
-اردو
-Uzbek
-O'ZBEK
-Vietnamese
-TIẾNG VIỆT
-Explore the BBC Home News Sport Weather iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel Worklife Travel Future Culture TV Weather Sounds Terms of Use About the BBC Privacy Policy Cookies Accessibility Help Parental Guidance Contact the BBC Make an editorial complaint BBC emails for you Advertise with us Copyright © 2023 BBC. The BBC is not responsible for the content of external sites. Read about our approach to external linking.
-<hr/>
+          <h5 class="steps">(2) Preprocessing: Stopwords removal, Cleaning</h5>
+          <p>Cleaning Function perform followings</p>
+          <ul>
+            <li>Split the text into words using space and make it list</li>
+            <li>Remove length 1 words</li>
+            <li>Remove numbers, spaces, especial charactesr, structure</li>
+            <li>Make words lower case</li>
+            <li>Removing stopwords</li>
+            <li>Removing common nouns</li>
+            <li>return preprocessed clean text</li>
+          </ul>
+          <pre><code>
+
+
+def Preprocessing_Text(Raw_text):
+    
+    # 1 making text as a space seperated word list
+    
+    Words_in_text =[]
+    for word in Raw_text.split():                    
+        Words_in_text.append(word)
+
+    
+     #2 remove numbers and special charactes from words
+        
+    alphawords_only = [word for word in Words_in_text if word.isalpha()]          
+    
+    #3 removing length 1 words
+    
+    Words_afterRemoval_onelength = [word for word in alphawords_only if len(word)>1]
+
+    #4 lower case all words
+    
+    lower_case_only = [word.lower() for word in Words_afterRemoval_onelength ]
+    
+    # Remove stopwords 
+    
+    stopwords_nltk = set(stopwords.words("English"))  
+    words_withoutStopwords = [word for word in lower_case_only if word not in stopwords_nltk]
+    
+    #removing words from common nouns like thank, use, gift, close
+    
+    words_withoutCommonNouns = [word for word in words_withoutStopwords if word not in Common_Nouns ]
+    
+    #return list of preprocess words
+    
+    return (words_withoutCommonNouns)
+        </code></pre>
+          <hr />
+          <h2>
+            Calling WEb Function (Clean_Text,Raw_HTML_Soup) =
+            Web_Funtion("http://bbc.com") print (Clean_Text)
+          </h2>
+          <div class="output_example">
+            BBC - Homepage Homepage Accessibility links Skip to content
+            Accessibility Help BBC Account Notifications Home News Sport Weather
+            iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel
+            Worklife Travel Future Culture TV Weather Sounds More menu Search
+            BBC Search BBC Home News Sport Weather iPlayer Sounds Bitesize
+            CBeebies CBBC Food Home News Sport Reel Worklife Travel Future
+            Culture TV Weather Sounds Close menu BBC Homepage Putin should be
+            sentenced for 'criminal actions' - Zelensky The Ukrainian president
+            calls for the creation of a new war tribunal as he addresses The
+            Hague. Europe Putin should be sentenced for 'criminal actions' -
+            Zelensky Teen made 'kill list' for Serbia school attack Europe Teen
+            made 'kill list' for Serbia school attack Erdogan rival pledges to
+            restore Turkish democracy Europe Erdogan rival pledges to restore
+            Turkish democracy What kings wore from Tudor times to now Culture
+            What kings wore from Tudor times to now The true story of the
+            Kentucky Derby Travel The true story of the Kentucky Derby News Ros
+            Atkins on... the videos showing 'Kremlin attack' The BBC’s Analysis
+            Editor looks at the footage circulating on Russian social media.
+            Europe Ros Atkins on... the videos showing 'Kremlin attack'
+            Pioneering actress killed in Sudan cross-fire Asia Abdelmajid,
+            famous for her stage performances, is buried in the grounds of a
+            kindergarten. Africa Pioneering actress killed in Sudan cross-fire
+            Carrie Fisher family row eclipses Hollywood honour The Star Wars
+            actress's siblings are not invited to her Hollywood Walk of Fame
+            ceremony. Entertainment & Arts Carrie Fisher family row eclipses
+            Hollywood honour Sport Premier League news and your views on
+            Haaland, Allardyce Manchester City beat West Ham to top table again
+            as Erling Haaland sets new Premier League record, plus Crystal
+            Palace among news conferences. Football Premier League news and your
+            views on Haaland, Allardyce Why Bellingham's Real move makes
+            'perfect sense' England midfielder Jude Bellingham joining Real
+            Madrid would be in keeping with their strategy of buying the world's
+            best young players, says Andy West. European Football Why
+            Bellingham's Real move makes 'perfect sense' A tour of a lost world,
+            before football changed forever Thirty-five years ago, a father and
+            son set off to tour every Football League ground. They brought back
+            a record of a disappearing era and a lasting relationship. Sport A
+            tour of a lost world, before football changed forever Coronation of
+            King Charles III Your full guide to how Coronation day will unfold
+            Processions, ancient rituals, a fly-past and the crowning moment UK
+            Your full guide to how Coronation day will unfold A chicken dish
+            made for the queen The famous dish has been reimagined by a variety
+            of chefs over the years World's Table A chicken dish made for the
+            queen Charles is King of 15 countries - but for how much longer? BBC
+            correspondents describe the mood in nations where King Charles is
+            still head of state and the chances of replacing the monarchy any
+            time soon World Charles is King of 15 countries - but for how much
+            longer? London Weather Edit Thu 19°C 12°C Fri 18°C 10°C Sat 16°C
+            12°C Sun 19°C 10°C Visit Reel The most amazing videos from the BBC
+            The truth about the Kama Sutra Why do French men pee on the street?
+            Is this the real face of Elizabeth I? Editor’s Picks Do you own too
+            many clothes? The 'sufficient' wardrobe Future Do you own too many
+            clothes? A regal scone made for King Charles III Shaped into a
+            crown, it's infused with Darjeeling and honey Travel A regal scone
+            made for King Charles III Can remote-work gossip backfire? Why
+            venting about your boss just became much riskier Worklife Can
+            remote-work gossip backfire? The rappers risking the death penalty
+            How hip-hop has soundtracked Iran's protest era Culture The rappers
+            risking the death penalty Why The Wicker Man has divided opinion for
+            50 years The folk horror film has been dividing audiences since it
+            slipped into British cinemas UK Why The Wicker Man has divided
+            opinion for 50 years Row over Met Gala's Karl Lagerfeld tribute
+            Actress Jameela Jamil criticises the A-list event for honouring the
+            controversial designer Entertainment & Arts Row over Met Gala's Karl
+            Lagerfeld tribute The good and bad of ADHD content on TikTok Content
+            about the condition gets billions of views, but is it driving too
+            many to self-diagnose? Newsbeat The good and bad of ADHD content on
+            TikTok Latest Business News 1 Shell reports stronger than expected
+            profits 2 US raises interest rates to highest in 16 years 3
+            Investors sue over Credit Suisse collapse 4 China tourism rebounds
+            above pre-pandemic levels 5 Branson feared 'losing everything' in
+            pandemic Future Planet Solutions for a sustainable world The revival
+            of a historic Italian fruit The first climate-resilient nation? A
+            major positive climate tipping point Technology of Business Business
+            Why there is serious money in kitchen fumes Why there is serious
+            money in kitchen fumes ADVERTISEMENT New Tech Economy Business The
+            people turning time into a currency The people turning time into a
+            currency Featured video Inside hospital where oxygen runs out The
+            BBC reports from an Afghan hospital where dozens of children are
+            critically ill with preventable diseases. Asia Inside hospital where
+            oxygen runs out Recommended Latest Inside hospital where oxygen runs
+            out Asia Inside hospital where oxygen runs out Which route will the
+            King take to his... UK Which route will the King take to his
+            Coronation? Watch man arrested at Buckingham Palace gates UK Watch
+            man arrested at Buckingham Palace gates Branson on 'painful' media
+            coverage during... Business Branson on 'painful' media coverage
+            during pandemic Watch first public outing for King's golden... UK
+            Watch first public outing for King's golden carriages One-minute
+            World News Video One-minute World News Minnesota senator appears
+            topless during Zoom... US & Canada Minnesota senator appears topless
+            during Zoom vote Princess Anne on what type of king her... US &
+            Canada Princess Anne on what type of king her brother is Ryan
+            Reynolds takes selfies on Wrexham... Wales Ryan Reynolds takes
+            selfies on Wrexham winners' bus BBC World Service On Air: The
+            Newsroom More around the BBC Lizzo thanks 'King of Flutes' for Met
+            Gala duet The US star pays tribute to her idol Sir James Galway
+            after the Belfast musician performs with her... Northern Ireland
+            Lizzo thanks 'King of Flutes' for Met Gala duet Meta putting child
+            users at risk, regulator says Technology Meta putting child users at
+            risk, regulator says Europe's new weather satellite takes first
+            photos Science & Environment Europe's new weather satellite takes
+            first photos US approves world's first RSV vaccine US & Canada US
+            approves world's first RSV vaccine The 17 most eye-catching looks at
+            the Met Gala Entertainment & Arts The 17 most eye-catching looks at
+            the Met Gala Australia to ban recreational vaping Australia
+            Australia to ban recreational vaping Can Morocco solve Europe’s
+            energy crisis? Business Can Morocco solve Europe’s energy crisis?
+            From Our Correspondents New Alzheimer's drug slows disease by a
+            third By James Gallagher Afghanistan: 'Nothing we can do but watch
+            babies die' By Yogita Limaye Is your job at risk from AI? By Faisal
+            Islam Is climate change killing Australian wine? By Tiffanie
+            Turnbull Hero sled dog Balto's unique genes revealed By Madeline
+            Halpert On-air fistfights, fetishes and raucous crowds By Sam Cabral
+            Is the UK a bad place for tech firms? By Zoe Kleinman Living on the
+            frontlines of a US-China flashpoint By Laura Bicker Global Trade
+            Peru's 'fast and furious' blueberry boom Business Peru's 'fast and
+            furious' blueberry boom New Tech Economy The wedding tech now at the
+            heart of couples' nuptials Business The wedding tech now at the
+            heart of couples' nuptials World in pictures Parasols and prayers:
+            Africa's top shots Africa Parasols and prayers: Africa's top shots
+            The photos that chronicle the cost of dying Scotland The photos that
+            chronicle the cost of dying Len Goodman obituary: From the East End
+            to Strictly stardom Entertainment & Arts Len Goodman obituary: From
+            the East End to Strictly stardom Penarth: Nofio gyda'r wawr yn y môr
+            // Sea swimming at dawn Cylchgrawn Penarth: Nofio gyda'r wawr yn y
+            môr // Sea swimming at dawn In pictures: Muslims around the world
+            celebrate Eid In Pictures In pictures: Muslims around the world
+            celebrate Eid BBC in other languages Russian Война в Украине:
+            Зеленский выступил в Гааге; Кремль обвиняет США в атаке
+            беспилотниками Spanish "La vida de mi hijo fue sacrificada por las
+            ganancias petroleras de BP" More Languages Arabic عربي Azeri
+            AZƏRBAYCAN Bangla বাংলা Burmese မြန်မာ Chinese 中文网 French AFRIQUE
+            Hausa HAUSA Hindi हिन्दी Indonesian INDONESIA Japanese 日本語
+            Kinyarwanda GAHUZA Kirundi KIRUNDI Kyrgyz Кыргыз Marathi मराठी
+            Nepali नेपाली Pashto پښتو Persian فارسی Portuguese BRASIL Russian НА
+            РУССКОМ Sinhala සිංහල Somali SOMALI Spanish MUNDO Swahili SWAHILI
+            Tamil தமிழ் Turkish TÜRKÇE Ukrainian УКРАЇНСЬКA Urdu اردو Uzbek
+            O'ZBEK Vietnamese TIẾNG VIỆT Explore the BBC Home News Sport Weather
+            iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel
+            Worklife Travel Future Culture TV Weather Sounds Terms of Use About
+            the BBC Privacy Policy Cookies Accessibility Help Parental Guidance
+            Contact the BBC Make an editorial complaint BBC emails for you
+            Advertise with us Copyright © 2023 BBC. The BBC is not responsible
+            for the content of external sites. Read about our approach to
+            external linking.
+            <hr />
+          </div>
+          <h2>Preprocess steps and effects</h2>
+          <div class="output_container">
+            <div class="output_example">
+              Length webpage text: <span class="result">9496</span> Length of
+              single space seperated words:<span class="result">1537</span>
+
+              After number characters removal:<span class="result">1349</span>
+
+              Removing one character length words:<span class="result"
+                >1319</span
+              >
+
+              After removing stopwords: <span class="result">945</span> After
+              removing common nouns length of Final text:<span class="result"
+                >922</span
+              >
             </div>
-            <h5 class="steps">(1) Preprocessing: Stopwords removal, Cleaning</h5>
-            <code></code>
-            <div class ="output_example"></div>
-          </pre>
+
+            Preprocess Text <br />
+            <br />
+            [bbc, homepage, homepage, accessibility, links, skip, content,
+            accessibility, help, bbc, account, notifications, home, news, sport,
+            weather, iplayer, sounds, bitesize, cbeebies, cbbc, food, home,
+            news, sport, reel, worklife, travel, future, culture, tv, weather,
+            sounds, search, bbc, search, bbc, home, news, sport, weather,
+            iplayer, sounds, bitesize, cbeebies, cbbc, food, home, news, sport,
+            reel, worklife, travel, future, culture, tv, weather, sounds, bbc,
+            homepage, putin, sentenced, zelensky, ukrainian, president, calls,
+            creation, new, war, tribunal, addresses, europe, putin, sentenced,
+            zelensky, teen, made, serbia, school, attack, europe, teen, made,
+            serbia, school, attack, erdogan, rival, pledges, restore, turkish,
+            democracy, europe, erdogan, rival, pledges, restore, turkish,
+            democracy, kings, wore, tudor, times, culture, kings, wore, tudor,
+            times, true, story, kentucky, derby, travel, true, story, kentucky,
+            derby, news, ros, atkins, videos, showing, analysis, editor, looks,
+            footage, circulating, russian, social, europe, ros, atkins, videos,
+            showing, pioneering, actress, killed, sudan, asia, famous, stage,
+            buried, grounds, africa, pioneering, actress, killed, sudan, carrie,
+            fisher, family, row, eclipses, hollywood, honour, star, wars,
+            siblings, invited, hollywood, walk, fame, entertainment, arts,
+            carrie, fisher, family, row, eclipses, hollywood, honour, sport,
+            premier, league, news, views, allardyce, manchester, city, beat,
+            west, ham, top, table, erling, haaland, sets, new, premier, league,
+            plus, crystal, palace, among, news, football, premier, league, news,
+            views, allardyce, real, move, makes, england, midfielder, jude,
+            bellingham, joining, real, madrid, would, keeping, strategy, buying,
+            best, young, says, andy, european, football, real, move, makes,
+            tour, lost, football, changed, forever, years, father, son, set,
+            tour, every, football, league, brought, back, record, disappearing,
+            era, lasting, sport, tour, lost, football, changed, forever,
+            coronation, king, charles, iii, full, guide, coronation, unfold,
+            ancient, crowning, moment, uk, full, guide, coronation, unfold,
+            chicken, dish, made, queen, famous, dish, reimagined, variety,
+            chefs, years, table, chicken, dish, made, queen, charles, king,
+            countries, much, bbc, correspondents, describe, mood, nations, king,
+            charles, still, head, state, chances, replacing, monarchy, soon,
+            charles, king, countries, much, london, weather, edit, thu, fri,
+            sat, sun, visit, reel, amazing, videos, bbc, truth, kama, sutra,
+            french, men, pee, surprisingly, deadly, secret, grapefruit, picks,
+            many, wardrobe, future, many, regal, scone, made, king, charles,
+            iii, shaped, infused, darjeeling, honey, travel, regal, scone, made,
+            king, charles, iii, gossip, venting, boss, became, much, riskier,
+            worklife, gossip, rappers, risking, death, penalty, soundtracked,
+            protest, era, culture, rappers, risking, death, penalty, wicker,
+            man, divided, opinion, years, folk, horror, film, dividing,
+            audiences, since, slipped, british, cinemas, uk, wicker, man,
+            divided, opinion, years, row, met, karl, lagerfeld, tribute,
+            actress, jameela, jamil, criticises, event, honouring,
+            controversial, designer, entertainment, arts, row, met, karl,
+            lagerfeld, tribute, good, bad, adhd, content, tiktok, content,
+            condition, gets, billions, driving, many, newsbeat, good, bad, adhd,
+            content, tiktok, latest, business, news, shell, reports, stronger,
+            expected, profits, us, raises, interest, rates, highest, years,
+            investors, sue, credit, suisse, collapse, china, tourism, rebounds,
+            levels, branson, feared, pandemic, future, planet, solutions,
+            sustainable, revival, historic, italian, fruit, first, major,
+            positive, climate, tipping, point, technology, business, business,
+            serious, money, kitchen, fumes, serious, money, kitchen, fumes,
+            advertisement, new, tech, economy, business, people, turning,
+            currency, people, turning, currency, featured, video, inside,
+            hospital, oxygen, runs, bbc, reports, afghan, hospital, dozens,
+            children, critically, ill, preventable, asia, inside, hospital,
+            oxygen, runs, recommended, latest, inside, hospital, oxygen, runs,
+            asia, inside, hospital, oxygen, runs, route, king, take, uk, route,
+            king, take, watch, man, arrested, buckingham, palace, gates, uk,
+            watch, man, arrested, buckingham, palace, gates, branson, media,
+            coverage, business, branson, media, coverage, pandemic, watch,
+            first, public, outing, uk, watch, first, public, outing, golden,
+            carriages, news, video, news, minnesota, senator, appears, topless,
+            us, canada, minnesota, senator, appears, topless, zoom, vote,
+            princess, anne, type, king, us, canada, princess, anne, type, king,
+            brother, ryan, reynolds, takes, selfies, wales, ryan, reynolds,
+            takes, selfies, wrexham, bus, bbc, service, newsroom, around, bbc,
+            lizzo, met, gala, duet, us, star, pays, tribute, idol, sir, james,
+            galway, belfast, musician, performs, northern, ireland, lizzo, met,
+            gala, duet, meta, putting, child, users, regulator, says,
+            technology, meta, putting, child, users, regulator, says, new,
+            weather, satellite, takes, first, photos, science, environment, new,
+            weather, satellite, takes, first, photos, us, approves, first, rsv,
+            vaccine, us, canada, us, approves, first, rsv, vaccine, looks, met,
+            gala, entertainment, arts, looks, met, gala, australia, ban,
+            recreational, vaping, australia, australia, ban, recreational,
+            vaping, morocco, solve, energy, business, morocco, solve, energy,
+            correspondents, new, drug, slows, disease, third, james, gallagher,
+            watch, babies, yogita, limaye, risk, faisal, islam, climate, change,
+            killing, australian, tiffanie, turnbull, hero, sled, dog, unique,
+            genes, revealed, madeline, halpert, fetishes, raucous, crowds, sam,
+            cabral, uk, bad, place, tech, zoe, kleinman, living, frontlines,
+            flashpoint, laura, bicker, global, trade, blueberry, boom, business,
+            blueberry, boom, new, tech, economy, wedding, tech, heart, nuptials,
+            business, wedding, tech, heart, nuptials, pictures, parasols, top,
+            shots, africa, parasols, top, shots, photos, chronicle, dying,
+            scotland, photos, chronicle, dying, len, goodman, east, end,
+            strictly, stardom, entertainment, arts, len, goodman, east, end,
+            strictly, stardom, nofio, wawr, yn, môr, sea, swimming, dawn,
+            cylchgrawn, nofio, wawr, yn, môr, sea, swimming, dawn, muslims,
+            around, celebrate, eid, pictures, muslims, around, celebrate, eid,
+            bbc, languages, russian, война, зеленский, выступил, кремль,
+            обвиняет, сша, атаке, беспилотниками, spanish, vida, de, mi, hijo,
+            fue, sacrificada, por, las, ganancias, petroleras, de, languages,
+            arabic, عربي, azeri, azərbaycan, bangla, burmese, chinese, 中文网,
+            french, afrique, hausa, hausa, hindi, indonesian, indonesia,
+            japanese, 日本語, kinyarwanda, gahuza, kirundi, kirundi, kyrgyz,
+            кыргыз, marathi, nepali, pashto, پښتو, persian, فارسی, portuguese,
+            brasil, russian, на, русском, sinhala, somali, somali, spanish,
+            mundo, swahili, swahili, tamil, turkish, türkçe, ukrainian,
+            українськa, urdu, اردو, uzbek, vietnamese, tiếng, việt, explore,
+            bbc, home, news, sport, weather, iplayer, sounds, bitesize,
+            cbeebies, cbbc, food, home, news, sport, reel, worklife, travel,
+            future, culture, tv, weather, sounds, terms, bbc, privacy, policy,
+            cookies, accessibility, help, parental, guidance, contact, bbc,
+            make, editorial, complaint, bbc, emails, advertise, us, copyright,
+            bbc, responsible, content, external, approach, external]
+          </div>
         </article>
       </section>
       <section id="Webrank">

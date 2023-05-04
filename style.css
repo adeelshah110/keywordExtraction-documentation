@@ -73,13 +73,29 @@ section h2 {
   align-items: center;
   justify-content: center;
 }
-.output_example {
-  display: flex;
-  font-size: 20px;
-  background-color: gray;
+.output_container {
+  font-size: 15px;
+  background-color: black;
   align-items: center;
   color: white;
+  text-align: justify;
+  padding: 10px 10px;
 }
+.output_example {
+  font-size: 15px;
+  background-color: black;
+  align-items: center;
+  color: white;
+  text-align: justify;
+  padding: 10px 10px;
+}
+.result {
+  display: flex;
+  justify-content: center;
+  color: yellow;
+  font-size: 20px;
+}
+
 @media (max-width: 480px) {
   body {
     flex-direction: column;
