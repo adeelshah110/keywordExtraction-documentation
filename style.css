@@ -111,3 +111,26 @@ section h2 {
   font-weight: bold;
   color: yellowgreen;
 }
+
+.showHideBtn {
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  border: none;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 36px;
+  margin-top: 20px;
+  color: brown;
+}
+.introduction {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+}
