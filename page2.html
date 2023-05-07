@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 8</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Keyword Extraction</h1>
+        <ul>
+          <a href="Introduction"><li>Introduction</li></a>
+
+          <a href="Hrank"><li>Hrank</li></a>
+
+          <a href="Drank"><li>Drank</li></a>
+
+          <a href="Webrank"><li>Webrank</li></a>
+
+          <a href="Acirank"><li>ACI-rank</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+
+      <section id="Introduction">
+     
+        <div class="title">
+        <h2>About Keyword Extraction</h2>
+      </div>
+        <article>
+          <p>
+            Google defnes a keyword as an isolated word or phrase that provides
+            concise high-level information about content to readers . With the
+            increasing amount of data, users need more resources and time to
+            understand content. Keywords make it easier to understand the
+            meaning of a text in fewer words.
+          </p>
+          <p>
+            In short, keywords summarize the key points presented in the text.
+            When searching for information on search engines, keywords play a
+            signifcant role in fnding relevant content. Keywords are the
+            mostinformative part of a text; they are the most prominent words in
+            the text and describe its content. Keywords are necessary in
+            situations involving huge amounts of text data that need to be
+            processed automatically. Keywords are widely used in document
+            summarization, indexing, categorization, and clustering of huge
+            datasets. Many scientifc publications contain keyword lists that
+            have been explicitly assigned by their authors. Other documents,
+            however, have not been assigned keywords . As webpages are
+            constantly updated, it is difcult to create keywords manually.
+            Manual keyword assignment is labor intensive, time consuming, and
+            error prone.
+          </p>
+
+          <p>
+            Specialized curators use fxed taxonomies for manual keyword
+            generation, but in some cases, the keywords chosen by the author are
+            not sufciently comprehensive and accurate. Without high-quality
+            keywords, users fail to catch relevant information . Keywords ofer
+            readers a concise high-level summary of a documents content, thereby
+            improving their understanding of that text. Keywords are the most
+            relevant and important indicator for users seeking to grasp the
+            fundamentals of a topic when scanning or skimming an article.
+            Keyword extraction is a basic step in many text-mining and natural
+            language processing (NLP) techniques, including text summarization,
+            information retrieval, topic modeling, clustering, and content-based
+            advertisement systems. Finding the relevant webpages, a user is
+            seeking is often a challenging task for which representative
+            keywords or keyphrases.
+          </p>
+
+          <p>
+            This article addresses the issue of automatic extracting keywords
+            from webpages. The majority of existing keyword extraction methods
+            use language-dependent Natural Language Processing (NLP) based
+            techniques, including Part-of-Speech (POS) tagging, stemming, and
+            lemmatization, which makes it complex to generalize a method for
+            different languages. The main purpose of the research is to extract
+            only those language-independent features of web pages in order to
+            find a method that can be applied in different languages.
+          </p>
+          <p>
+            So far, studies on language-independent approaches have been limited
+            because they usually perform worse than methods that take advantage
+            of linguistic features. Extracting keywords from web documents
+            involves two main challenges: the first is the presence of noise and
+            irrelevant data such as navigation bars, menus, comments and
+            advertisements and the second consists in the presence of multiple
+            topics and multiple languages. Therefore, it is very important to
+            have a general keyword extraction method that can extract keywords
+            without relying on any specific language.
+          </p>
+
+          <p>
+            addresses the challenges of keyword extraction by developing and
+            testing four new techniques, both language-dependent and
+            language-independent as well as supervised and unsupervised. Special
+            attention is paid to finding the most relevant features for
+            identifying good keyword and keyphrase candidates. The work deals
+            with statistical, linguistic, and structural features as well as
+            their combinations. This diversity of approaches serves the
+            pragmatic overall goal of finding the best available methods by
+            assessing the relative performances of the newly developed as well
+            as existing methods on a number of different datasets.
+          </p>
+
+          <p>
+            For this purpose the author proposes four new automatic keyword
+            extraction methods for webpages: Hrank, D-rank, WebRank, and
+            ACI-rank
+          </p>
+        </article>
+      </section>
+<section id="Hrank">
+  <div class="container">
+    <div class="content">
+
+      <div class="title">
+        <h2>HRANK </h2>       
+      </div>
+      <div class = "intro">
+      <h4  class = "introduction">Introduction</h4> 
+      <article><p></p></article>
+        </div>
+       
+        <div class="methodology">
+
+        <h4 class = "introduction">Methodology</h4> 
+        <article><p>Fig. 1. presents the workflow of the proposed keywords extraction method. The method has two modules: (1) pre-processing and (2) keyword extraction. The pre-processing module involves the extraction of the natural language text from the web page. The keyword extraction module utilizes the text from the pre-processing module. 
+          In the pre-processing module, the first three functions involve the filtering of the text from all the other content of a web page. All the content of a web page is extracted using a document object model (DOM) and X-path function. The text that belongs to javascript scripting language and cascade style sheets is eliminated in the text filtering function. The special characters, such as @,*,£, or $, punctuation marks, and numbers are also filtered out using the regular expression in the text filtering function. Similarly, the text filtering function also involves the removal of the stop words from the text. The stop words are the natural language words that have minimal or no meaning, such as and, the, a, and an. The filtered text can now be utilized for natural language processing.
+          The POS extractor, normalize text, and separate POS functions involve the natural language processing on the filtered text. The POS extractor function divides the text into tokens. A token is a whitespace-separated unit of text. The tokens are assigned the POS tags, such as nouns, adjectives, and verbs. 
+          The tokens with POS tags are further normalized. The normalization is the process of replacing the inflected forms of a word with the root word. The inflected form represents the different usage of a word in the sentences. For example, finds, finding, and found are the inflected forms of the word find. An inflected form of a word has a changed spelling or ending. In natural language processing, the lemmatization is used to find the inflected form of the words with different spellings, such as finds and found for the word find in the above example. Unlike lemmatization, the stemming process takes care of the prefixes and suffixes to find the root word, such as finding in the abovementioned example. The output of the normalization process is the tokens with all the inflected forms replaced with their root word.
+          The lists of the POS-tagged tokens are provided to the separate POS function, which separates the tokens into the lists of nouns, adjectives, and verbs. The lists are provided to the count frequency function. The count frequency function calculates the frequency of the words in the separate lists having nouns, adjectives, and verbs. The top-frequent tokens are selected as candidate keywords. The semantically similar words among top-frequent tokens are grouped together using a lexical database, named as WordNet. The lexical database helps in finding the synsets of the words. The synset is a set of one or more synonyms that can be used interchangeably in some context [20].                                                                                                                                                                                                                                                                                                                                                                                                                            
+                We compute the semantic similarity of two different words using path-similarity, which is based on the WordNet [21]. The words that have no synonyms in the WordNet are removed from the lists. The path-similarity metric calculates the score between two different words in terms of their relatedness. We use path-similarity because it is very simple and it operates based on a parent-child relationship like a tree. Therefore, it is more convenient to use in our case.
+          Three similarity matrices are created independently for the nouns, adjectives, and verbs. The similarity matrices are utilized in clustering the related words. We use an agglomerative clustering to find similar words in the lists.  The clusters are scored by counting the frequencies of all the words in each cluster. The clusters are ranked according to the scores.
+          </p><p>     <img
+          src="./images/Hrank_workflow.PNG"
+          alt="Dranks"
+          width="600"
+          height="300"
+        />
+        <p>Fig. 1. Workflow of Drank</p></p></article>
+      </div>
+     
+      
+        <div class="implementation">
+        
+        <p><ol>
+          <li>Extract Text</li>
+          <li>Preprocess Text</li>
+          <li>POS Tags Seperation</li>
+          <li>Word Net semantic similarity</li>
+          <li>Cluster Words</li>
+          <li>Keyword Ranking and Selection</li>
+        </ol></p>
+        <pre><code>
+          
+          <h4> Import packages</h4>
+          
+          <code> Imports
+            import urllib
+            import nltk
+            import sys
+            import re 
+            
+            import lxml
+            import math
+            import string
+            import textwrap
+            import requests
+            
+            from nltk.corpus import stopwords
+            from bs4 import BeautifulSoup
+            from nltk import word_tokenize
+            from nltk.stem import WordNetLemmatizer
+            from collections import defaultdict,Counter
+            from nltk.corpus import stopwords
+            from collections import defaultdict 
+            from bs4.element import Comment
+            
+            from nltk import wordpunct_tokenize
+            from urllib.parse import urlparse 
+            
+            import pandas as pd 
+            import numpy as np
+            
+            Common_Nouns ="january debt est dec big than who use jun jan feb mar apr may jul agust dec oct nov sep dec  product continue second secodns".split(" ")
+            URL_CommnWords =['','https','www','com','-','php','pk','fi','http:','http']
+            URL_CommonQueryWords = ['','https','www','com','-','php','pk','fi','https:','http','http:','html','htm']
+            UselessTagsText =['html','style', 'script', 'head',  '[document]','img']
+            <hr class ="new3"/>
+    <h4>(1) Extract Text of Webpage</h4>
+   
+            
+            def Scrapper1(element):
+                if element.parent.name in [UselessTagsText]:
+                    return False
+                if isinstance(element, Comment):
+                    return False
+                return True
+            
+            def Scrapper2(body):             
+                soup = BeautifulSoup(body, 'lxml')      
+                texts = soup.findAll(text=True)   
+                name =soup.findAll(name=True) 
+                visible_texts = filter(Scrapper1,texts)        
+                return u" ".join(t.strip() for t in visible_texts)
+            
+            def Scrapper3(text):                  
+                lines = (line.strip() for line in text.splitlines())    
+                chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+                return u'\n'.join(chunk for chunk in chunks if chunk)
+            
+            
+            def Scrapper_title_4(URL):
+              req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+              con = urllib.request.urlopen(req)
+              html= con.read()
+              title=[]
+              
+              soup = BeautifulSoup(html, 'lxml') 
+              title.append(soup.title.string)
+              return(title,urls)
+            
+            def Web_Funtion(URL):
+              req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+              con = urllib.request.urlopen(req)
+              html= con.read()  
+              Raw_HTML_Soup = BeautifulSoup(html, 'lxml') 
+             
+              raw =Scrapper2(html)
+              Raw_text = Scrapper3(raw) 
+              return(Raw_text,Raw_HTML_Soup)  
+            
+          
+            
+                </code></pre><hr class ="new3"/>
+      </div>
+    <hr class ="new3"/>
+
+      <h4 class = "introduction">Output Section Hrank Exmple </h4> 
+      
+      <div class="output">
+        
+        <div class="result">
+          <h5></h5>
+          <pre></pre>
+          <h5></h5>
+          <pre></pre>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<section id="Drank">
+  <div class="container">
+    <div class="content">
+
+      <div class="title">
+        <h2>DRANK </h2>       
+      </div>
+      <div class = "intro">
+      <h4  class = "introduction">Introduction</h4> 
+      <article> <p>
+                  Work deals with webpage keyword extraction, which is crucial for the
+        information retrieval task performed by search engines browsing
+        through the internet. As such, keyword extraction is a specific kind
+        of information extraction task, where the use of a natural language,
+        or even several languages, poses severe challenges. To conquer these
+        challenges, appropriate natural language processing (NLP) techniques
+        have to be applied. As the method is dealing with webpages, the task
+        is further complicated by the varying structure and layout of the
+        pages. Even if Google search is widely and successfully used by a
+        vast number of people for all so many purposes, the search results
+        are often far from optimal, and processing natural language
+        documents remain challenging.
+      </p>
+      <p>
+        The D-rank method is an unsupervised method where the candidate
+        keywords were ranked based on their position in the content after
+        extracting their features from the DOM structure. The author tested
+        the proposed method on a dataset of webpages in three languages:
+        English, Finnish, and German.
+      </p></article>
+        </div>
+        
+        <div class="methodology">
+
+        <h4 class = "introduction">Methodology</h4> 
+       
+        <article><p>    <div class="image_container">
+          <img
+            src="./images/Drank_workflow.PNG"
+            alt="Dranks"
+            width="600"
+            height="300"
+          />
+          <p>Fig. 2. Workflow of Drank</p>
+        </div></p></article>
+      </div>
+     
+        <div class="implementation">
+        <h4 class = "introduction">Python implementaion</h4> 
+       <ol>
+          <li>Extract Text</li>
+          <li>Preprocess Text</li>
+          <li>Feature Formation</li>
+          <li>Score Feature Words</li>
+          <li>Final Keyword Selection</li>
+        </ol>
+       
+    <hr class ="new3"/>
+   <pre><code>-------------------------------------------------------------------------------------------------------
+     Imports
+    --------------------------------------------------------------------------------------------------------
+    import urllib
+    import nltk
+    import sys
+    import re 
+    
+    import lxml
+    import math
+    import string
+    import textwrap
+    import requests
+    
+    from nltk.corpus import stopwords
+    from bs4 import BeautifulSoup
+    from nltk import word_tokenize
+    from nltk.stem import WordNetLemmatizer
+    from collections import defaultdict,Counter
+    from nltk.corpus import stopwords
+    from collections import defaultdict 
+    from bs4.element import Comment
+    
+    from nltk import wordpunct_tokenize
+    from urllib.parse import urlparse 
+    
+    import pandas as pd 
+    import numpy as np
+    
+    import warnings
+    warnings.filterwarnings("ignore", category=np.VisibleDeprecationWarning)
+    
+    Common_Nouns ="january debt est dec big than who use jun jan feb mar apr may jul agust dec oct nov sep dec  product continue one two three four five please thanks find helpful week job experience women girl apology read show eve  knowledge benefit appointment street way staff salon discount gift cost thing world close party love letters rewards offers special close  page week dollars voucher gifts vouchers welcome therefore march nights need name pleasure show sisters thank menu today always time needs welcome march february april may june jully aguast september october november december day year month minute second secodns".split(" ")
+    URL_CommnWords =['','https','www','com','-','php','pk','fi','http:','http']
+    URL_CommonQueryWords = ['','https','www','com','-','php','pk','fi','https:','http','http:','html','htm']
+    UselessTagsText =['html','style', 'script', 'head',  '[document]','img']
+    
+    ----------------------------------------------------------------------------------------------------------------
+     1. Extract Text of webpage
+    ----------------------------------------------------------------------------------------------------------------
+    
+    def Scrapper1(element):
+        if element.parent.name in [UselessTagsText]:
+            return False
+        if isinstance(element, Comment):
+            return False
+        return True
+    
+    def Scrapper2(body):             
+        soup = BeautifulSoup(body, 'lxml')      
+        texts = soup.findAll(text=True)   
+        name =soup.findAll(name=True) 
+        visible_texts = filter(Scrapper1,texts)        
+        return u" ".join(t.strip() for t in visible_texts)
+    
+    def Scrapper3(text):                  
+        lines = (line.strip() for line in text.splitlines())    
+        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+        return u'\n'.join(chunk for chunk in chunks if chunk)
+    
+    
+    def Scrapper_title_4(URL):
+      req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+      con = urllib.request.urlopen(req)
+      html= con.read()
+      title=[]
+      
+      soup = BeautifulSoup(html, 'lxml') 
+      title.append(soup.title.string)
+      return(title,urls)
+    
+    def Web_Funtion(URL):
+      req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+      con = urllib.request.urlopen(req)
+      html= con.read()  
+      Raw_HTML_Soup = BeautifulSoup(html, 'lxml') 
+     
+      raw =Scrapper2(html)
+      Raw_text = Scrapper3(raw) 
+      return(Raw_text,Raw_HTML_Soup) 
+    --------------------------------------------------------------------------------------------------------------------------
+     (2) Language Detection of Webpage Text
+    --------------------------------------------------------------------------------------------------------------------------
+    
+    def _calculate_languages_ratios(text):  
+        languages_ratios = {}
+        tokens = wordpunct_tokenize(text)
+        words = [word.lower() for word in tokens]    
+        for language in stopwords.fileids():
+            stopwords_set = set(stopwords.words(language))
+           
+            words_set = set(words)
+            common_elements = words_set.intersection(stopwords_set)
+    
+            languages_ratios[language] = len(common_elements) 
+        return languages_ratios
+    
+    
+    
+    def detect_language(text):
+        ratios = _calculate_languages_ratios(text)
+        most_rated_language = max(ratios, key=ratios.get)
+        stop_words_for_language = set(stopwords.words(most_rated_language))
+        return most_rated_language,stop_words_for_language
+    --------------------------------------------------------------------------------------------------------------------------
+     (3) Preprocessing of Text
+    --------------------------------------------------------------------------------------------------------------------------
+    
+    
+    def Preprocessing_Text(Raw_text, stop_words_for_language):
+        
+         1 making text as a space seperated word list
+        stop_words_for_language = str(stop_words_for_language).lower()
+        Words_in_text =[]
+        for word in Raw_text.split():                    
+            Words_in_text.append(word)
+    
+        
+         2 remove numbers and special charactes from words
+            
+        alphawords_only = [word for word in Words_in_text if word.isalpha()]          
+        
+        3 removing length 1 words
+        
+        Words_afterRemoval_onelength = [word for word in alphawords_only if len(word)>1]
+    
+        4 lower case all words
+        
+        lower_case_only = [word.lower() for word in Words_afterRemoval_onelength ]
+        
+         Remove stopwords 
+        
+        stopwords_nltk = set(stopwords.words("English"))  
+        words_withoutStopwords = [word for word in lower_case_only if word not in stopwords_nltk]
+        if stop_words_for_language != "english":
+            words_withoutStopwords = [word for word in words_withoutStopwords if word not in stop_words_for_language]
+        
+        removing words from common nouns like thank, use, gift, close
+        
+        words_withoutCommonNouns = [word for word in words_withoutStopwords if word not in Common_Nouns ]
+        
+        return list of preprocess words
+        
+        return (words_withoutCommonNouns)
+    -----------------------------------------------------------------------------------------------------
+     (4) Calculate Frequency of candidate words in text
+    -----------------------------------------------------------------------------------------------------
+    def Calc_words_frequency(Text_words):
+        
+        Sorted_WordCount_dict ={}  
+        word_and_fr_list=[]
+        Count_fr = Counter(Text_words)    
+        
+        for word,word_count in Count_fr.most_common():
+            word_and_fr_list.append([word, word_count])
+            Sorted_WordCount_dict[word]= word_count
+            
+        return(Sorted_WordCount_dict)
+    ---------------------------------------------------------------------------
+     (5) FEATURES Formation
+     10 features: URL: host, query parts, Headers(h1--H6), Title tag, Anchor tag
+    -----------------------------------------------------------------------------
+    def Function_ParseURL(URL):
+        URL =str(URL)
+        host=[]
+        obj=urlparse(URL)    
+        name =(obj.hostname)
+        if len(name)>0:
+            for x in name.split('.'):
+                if x.lower() not in URL_CommonQueryWords:
+                    host.append(x)
+            else:
+                host.append(name)
+        path=[]
+        host_part_URL =[]
+              
+        for url_parts in URL.split('/'):
+            for url_part in url_parts.split('.'):            
+                if (len(url_part)>0):
+                    for url_words in url_part.split('-'):
+                        if url_words.lower() not in URL_CommnWords and url_words.lower() not in host: 
+                            path.append(url_words.lower())
+                else:
+                    path.append(url_parts)                
+        return(host,path)
+    --------------------------------------------------------------------------------------------------
+    def function_TexDic_Filter(Tag_TextDic):
+        alt_words=[]
+        if len(Tag_TextDic) > 0:
+            for k,i in Tag_TextDic.items():    
+       
+                for x in i:
+                    word=[n for n in x.split(',')]
+                    for x in word:
+                        words=[i for i in x.split() ]
+                        for x in words:
+                            alt_words.append(x)
+            return(alt_words)
+        else:
+            return(alt_words)
+        
+    def function_Tag_Text(Raw_HTML_Soup,Tag_name):
+        TagTextList=[]  
+        for text in Raw_HTML_Soup.find_all(Tag_name):
+            tag_text = text.text.strip().lower()
+            TagTextList.append(tag_text)
+        return TagTextList   
+    
+    def function_HeaderTitleAnchorText(Raw_HTML_Soup):    
+        H1_TextList = function_Tag_Text(Raw_HTML_Soup,'h1')
+        H2_TextList = function_Tag_Text(Raw_HTML_Soup,'h2')
+        H3_TextList= function_Tag_Text(Raw_HTML_Soup,'h3')
+        H4_TextList = function_Tag_Text(Raw_HTML_Soup,'h4')
+        H5_TextList = function_Tag_Text(Raw_HTML_Soup,'h5')
+        H6_TextList = function_Tag_Text(Raw_HTML_Soup,'h6')
+        Title_TextList = function_Tag_Text(Raw_HTML_Soup,'title')
+        Anchor_TextList = function_Tag_Text(Raw_HTML_Soup,'a')
+        return (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList)
+        
+        
+    def function_MakeDictTagText(Raw_HTML_Soup):
+         
+        (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList) = function_HeaderTitleAnchorText(Raw_HTML_Soup)
+            
+        H1_TextDict = {}
+        H2_TextDict = {}
+        H1_TextDict = {}
+        H3_TextDict = {}
+        H4_TextDict = {}
+        H5_TextDict = {}
+        H6_TextDict= {}
+        Title_TextDict = {}
+        Anchor_TextDict = {}
+            
+        H1_TextDict["h1"] = H1_TextList
+        H2_TextDict["h2"] = H2_TextList
+        H3_TextDict["h3"] = H3_TextList
+        H4_TextDict["h4"] = H4_TextList
+        H5_TextDict["h5"] = H5_TextList
+        H6_TextDict["h6"] = H6_TextList    
+        Title_TextDict["title"] = Title_TextList
+        Anchor_TextDict["a"] = Anchor_TextList
+        
+        H1_dic = function_TexDic_Filter(H1_TextDict)
+        H2_dic = function_TexDic_Filter(H2_TextDict)
+        H3_dic = function_TexDic_Filter(H3_TextDict)
+        H4_dic = function_TexDic_Filter(H4_TextDict)
+        H5_dic = function_TexDic_Filter(H5_TextDict)
+        H6_dic = function_TexDic_Filter(H6_TextDict)
+        Title_dic = function_TexDic_Filter(Title_TextDict)
+        Anchor_dic = function_TexDic_Filter(Anchor_TextDict)
+        
+        return (H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic)
+    ---------------------------------------------------------------------------------------------------------------
+     (6) Score each candidate words based on Appearance in the features list
+           Manual scoring H1,title, url-Host: 5, h2,url-Query: 4, anchor, h4,h5,h6:2
+    ---------------------------------------------------------------------------------------------------------------
+    def Feature_Score(candidate_word,feature_words,score):
+        total_score=0
+        score_single_time =0    
+        for word_feature in feature_words:        
+            if word_feature ==candidate_word:            
+                total_score+=score
+                score_single_time = score                
+        return(score_single_time)
+               
+    def Tf_Score(fr,text_length):
+        if text_length<50:
+            tf_score =((fr/100)*50)
+        else:
+            tf_score=((fr/100)*20) 
+    
+    def function_word_Fr_TagName_ScoreDic(words_count_dic, text_length):
+        wrd_fr_Tgs_Fnl_score =defaultdict()
+        Word_Final_Score =defaultdict()
+        
+        names of features 10
+        Name_FeaturesList =np.array(['H1', 'H2', 'H3','H4', 'H5', 'H6','Title','Anchor','URL-H','URL-Q'])
+        
+         Manual score for words
+        Manual_Score_Each_Features =np.array([6, 5, 4,3, 2, 2, 6, 1,5,4])
+        
+        
+        
+         Get all the words in features
+        
+        (H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic)= function_MakeDictTagText(Raw_HTML_Soup)
+        featuresText_allDict_npArrayList = np.array([H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic, Host_part_of_URL, Query_part_of_URL])
+       
+        
+        for word,fr in words_count_dic.items():
+            tf_score = Tf_Score(fr,text_length)
+            tag =[]
+            name_tag =[]
+                   
+            for word_inAll_Dic in range (len(featuresText_allDict_npArrayList)):
+                if word in featuresText_allDict_npArrayList[word_inAll_Dic]:   
+                    tag.append(Manual_Score_Each_Features[word_inAll_Dic]) 
+                    name_tag.append(Name_FeaturesList[word_inAll_Dic])
+            score= (sum(tag))
+            score = score + tf_score
+            Word_Final_Score[word] = score
+            wrd_fr_Tgs_Fnl_score[word] = fr,name_tag,score
+        return (wrd_fr_Tgs_Fnl_score, Word_Final_Score)
+    ----------------------------------------------------------------------
+     (7) Ranking and Selection of Final 1o keywords main calling
+    ----------------------------------------------------------------------
+    if __name__ == "__main__":
+        
+        URL ="http://bbc.com"
+        
+        (Raw_text, Raw_HTML_Soup) = Web_Funtion(URL)
+        most_rated_language,stop_words_for_language = detect_language(Raw_text)
+        
+        preprocess_TextWords = Preprocessing_Text(Raw_text, stop_words_for_language )
+        text_length = len(preprocess_TextWords)
+        words_count_dic = Calc_words_frequency(preprocess_TextWords)
+        
+        
+         Features
+        Host_part_of_URL, Query_part_of_URL = Function_ParseURL(URL)
+        
+        (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList) = function_HeaderTitleAnchorText(Raw_HTML_Soup)
+       
+        Feature Header, Title, Anchor text, score dictionary
+        (wrd_fr_Tgs_Fnl_score, Word_Final_Score) = function_word_Fr_TagName_ScoreDic(words_count_dic, text_length)   
+        
+       
+    
+        keyword =[]
+        sorted_word_score = Counter(Word_Final_Score)
+        for word,score in sorted_word_score.most_common(10):
+            keyword.append(word)
+        print (keyword)
+        
+        -------------------------------------------------------------------------------------
+                             Ends here
+        -------------------------------------------------------------------------------------
+        </code></pre>
+            
+      </div>
+      
+      <div class="output">
+        <h4 class = "introduction">Output Section Drank Example </h4> 
+        <div class="result">
+          <hr class ="new3"/>
+
+        <h4>(1) Extract Text,Raw HTML Webpage Output</h4>
+        <hr class ="new3"/>
+            
+            <div class="output_example">
+              <h4>Raw Text</h4><pre><code>
+                html
+                BBC - Homepage
+                window.orb_fig_blocking = true;
+                window.bbcredirection = {geo: true};
+                :root {
+                --bbc-font: ReithSans, Arial, Helvetica, freesans, sans-serif;
+                --bbc-font-legacy: Arial, Helvetica, freesans, sans-serif;
+                }
+                window.orbitData = {};
+                var additionalPageProperties = {};
+                additionalPageProperties['custom_var_1'] = 'international' || null;
+                additionalPageProperties['custom_var_9'] = '1' || null;
+                additionalPageProperties['experience_global_platform'] = 'orbit';
+                window.orbitData.userProfileUrl = "https://www.bbc.co.uk/userprofile";
+                window.page = {
+                name: 'home.page' || null,
+                destination: 'HOMEPAGE_GNL' || null,</code></pre>
+                
+                <h4>Text of Webpage</h4>
+                <br>
+                <pre><code>Homepage Accessibility links Skip to content Accessibility Help BBC Account require(['idcta/statusbar'], function (statusbar) {new statusbar.Statusbar({id: 'idcta-statusbar', publiclyCacheable: true});}); Notifications Home News Sport Weather iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel Worklife Travel Future Culture TV Weather Sounds More menu
+                  Search BBC
+                  Search BBC
+                  Home News Sport Weather iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel Worklife Travel Future Culture TV Weather Sounds Close menu
+                  BBC Homepage
+                 
+                  Charles and Camilla crowned in historic Coronation
+                  King Charles and Queen Camilla have been crowned on a day of pageantry, history - and downpours.
+                  UK
+                  Charles and Camilla crowned in historic Coronation
+                  The story of Coronation day in extraordinary photos
+                  News
+                  The story of Coronation day in extraordinary photos
+                  Prince Harry leaves alone after Coronation
+                  UK
+                  Prince Harry leaves alone after Coronation
+                  Dozens of protesters arrested during Coronation
+                  UK
+                  Dozens of protesters arrested during Coronation
+                  Real Madrid win first Copa del Rey since 2014
+                  European Football
+                  Real Madrid win first Copa del Rey since 2014</code></pre>
+         
+            </div>
+            <hr class ="new3"/>
+            <h4> (2) Output Language Detection</h4>
+        
+            <hr class ="new3"/>
+            <div class="output_container">English Language</div>
+            <hr class ="new3"/>
+            <h4>(3) Preprocessing Text Output</h4>
+            <hr class ="new3">
+        <pre><code>BBC -Homepage Homepage Accessibility links Skip to content
+          Accessibility Help BBC Account Notifications Home News Sport Weather
+          iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel
+          Worklife Travel Future Culture TV Weather Sounds More menu Search
+          BBC Search BBC Home News Sport Weather iPlayer Sounds Bitesize
+          CBeebies CBBC Food Home News Sport Reel Worklife Travel Future
+          Culture TV Weather Sounds Close menu BBC Homepage Putin should be</code></pre>
+            <hr class ="new3"/>
+            <div class="output_container">
+              <div class="output_example">
+                <pre><code>
+                Total words in a webpage : 9496 
+                Length of Words length after removing 1 length words: 1537        
+                Words length After numbers, structure removal:1349
+                Words after removing special characters:1319
+                After removing stopwords: 945
+                After removing common nouns length of Final text:922
+              </code></pre>
+        
+              
+        
+                
+              </div>
+            </div>
+            <hr class ="new3">
+        <h4> (4) Candidate Keywords</h4>
+        <hr class ="new3">
+            <div class="output_example">
+              BBC -Homepage Homepage Accessibility links Skip to content
+              Accessibility Help BBC Account Notifications Home News Sport Weather
+              iPlayer Sounds Bitesize CBeebies CBBC Food Home News Sport Reel
+              Worklife Travel Future Culture TV Weather Sounds More menu Search
+              BBC Search BBC Home News Sport Weather iPlayer Sounds Bitesize
+              CBeebies CBBC Food Home News Sport Reel Worklife Travel Future
+              Culture TV Weather Sounds Close menu BBC Homepage Putin should be
+              sentenced for 'criminal actions' - Zelensky The Ukrainian president
+              calls for the creation of a new war tribunal as he addresses The
+              Hague. Europe Putin should be sentenced for 'criminal actions' -
+              Zelensky 
+            </div>
+            <hr class ="new3"/>
+            <h4>(5) Feature Formation</h4>
+        
+            <hr class ="new3"/>
+            <div class="output_container">
+              <br />Headers <br />H1<br />
+        
+              ['bbc homepage']<br />
+        
+              H2<br />
+        
+              ['accessibility links', '', 'news', 'sport', 'coronation of king
+              charles iii', 'london weather', 'editor’s picks', 'latest business
+              news', 'technology of business', 'advertisement', 'new tech
+              economy', 'featured video', 'bbc world service', 'more around the
+              bbc', 'from our correspondents', 'global trade', 'new tech economy',
+              'world in pictures', 'bbc in other languages', 'more languages',
+              'explore the bbc'] 
+              
+              H3<br />
+        
+              ['us denies masterminding moscow drone attack', 'top us judge under
+              fresh scrutiny over school fees', 'ed sheeran wins thinking out loud
+              copyright case', 'what side-hustlers are really making', 'the true
+              story of the kentucky derby', 'four proud boys guilty of seditious
+              conspiracy', 'silence and teddies at scene of serbia school
+              shooting', 'prince william and kate drop into a soho pub', 'serie a:
+              napoli bidding to clinch title but go 1-0 down at udinese', 'a tour
+              of a lost world, before football changed forever', 'premier league:
+              brighton 0-0 man utd - rashford goes close to opener', 'what kings
+              wore from tudor times to now', "the 'super-deep' diamonds in the
+              crown", 'your full guide to how coronation day will unfold', 'thu',
+              'fri', 'sat', 'sun', 'a misunderstood ancient erotic manual', 'why
+              do french men pee on the street?', 'the surprisingly deadly secret
+              of the grapefruit', 'a regal scone made for king charles iii', 'do
+              you own too many clothes?', 'can remote-work gossip backfire?', 'the
+              rappers risking the death penalty', 'why the wicker man has divided
+              opinion for 50 years', 'camilla: from tabloid target to crowned
+              queen', "lizzo thanks 'king of flutes' for met gala duet", 'shell
+              reports stronger than expected profits', 'us raises interest rates
+              to highest in 16 years', 'investors sue over credit suisse
+              collapse', 'china tourism rebounds above pre-pandemic levels',
+              "branson feared 'losing everything' in pandemic", 'the revival of a
+              historic italian fruit', 'the first climate-resilient nation?', 'a
+              major positive climate tipping point', 'why there is serious money
+              in kitchen fumes', 'the people turning time into a currency',
+              "ukraine's first lady and pm's wife embrace outside no 10",
+              "ukraine's first lady and pm's wife embrace...", 'how well does
+              william pull a pint?', 'space trash floats away during spacewalk',
+              "ros atkins on... the videos showing 'kremlin...", "russian media's
+              muted response to kremlin...", 'inside hospital where oxygen runs
+              out', 'which route will the king take to his', 'watch man
+              
+              'spanish']<br />
+              H4<br />
+        
+              [EMPTY] <br />H5<br />
+        
+              [EMPTY] <br />H6<br />
+        
+              [EMPTY]
+            </div>
+        
+            <hr class ="new3"/>
+            <h4>(6) Feature Score Output</h4>
+        
+            <hr class ="new3"/>
+            <div class="output_container">
+              <pre>
+              +---------------+-----------+------------------------------------------+--------------------+
+        |      Word     | Frequency |                   TAGS                   |    Final-Score     |
+        +---------------+-----------+------------------------------------------+--------------------+
+        |      bbc      |     14    | ['H1', 'H2', 'Title', 'Anchor', 'URL-H'] |        25.8        |
+        |    function   |     10    |                    []                    |        2.0         |
+        |    weather    |     9     |          ['H2', 'H3', 'Anchor']          |        11.8        |
+        |      news     |     8     |             ['H2', 'Anchor']             |        7.6         |
+        |     sport     |     8     |             ['H2', 'Anchor']             |        7.6         |
+        |    business   |     8     |             ['H2', 'Anchor']             |        7.6         |
+        |     return    |     7     |                    []                    | 1.4000000000000001 |
+        |     watch     |     7     |             ['H3', 'Anchor']             |        6.4         |
+        |      home     |     6     |                ['Anchor']                |        2.2         |
+        |     sounds    |     6     |                ['Anchor']                |        2.2         |
+        |     travel    |     6     |                ['Anchor']                |        2.2         |
+        |     future    |     6     |                ['Anchor']                |        2.2         |
+        |    charles    |     6     |          ['H2', 'H3', 'Anchor']          |        11.2        |
+        |     typeof    |     5     |                    []                    |        1.0         |
+        |    worklife   |     5     |                ['Anchor']                |        2.0         |
+        |    culture    |     5     |                ['Anchor']                |        2.0         |
+        |    football   |     5     |             ['H3', 'Anchor']             |        6.0         |
+        |      tech     |     5     |          ['H2', 'H3', 'Anchor']          |        11.0        |
+        |    homepage   |     4     |        ['H1', 'Title', 'Anchor']         |        13.8        |
+        |      reel     |     4     |                ['Anchor']                |        1.8         |
+        |     denies    |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |     europe    |     4     |                ['Anchor']                |        1.8         |
+        |      top      |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |     school    |     4     |             ['H3', 'Anchor']             |        5.8         |
+        | entertainment |     4     |                ['Anchor']                |        1.8         |
+        |      arts     |     4     |                ['Anchor']                |        1.8         |
+        |     years     |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |    william    |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |     makes     |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |      lady     |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |      wife     |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |    russian    |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |     photos    |     4     |             ['H3', 'Anchor']             |        5.8         |
+        |   primitive   |     3     |                    []                    |        0.6         |
+        |     catch     |     3     |                    []                    |        0.6         |
+        |     event     |     3     |                    []                    |        0.6         |
+        |      set      |     3     |                    []                    |        0.6         |
+        | optimizelyurl |     3     |                    []                    |        0.6         |
+        | accessibility |     3     |             ['H2', 'Anchor']             |        6.6         |
+        |    iplayer    |     3     |                ['Anchor']                |        1.6         |
+        |    bitesize   |     3     |                ['Anchor']                |        1.6         |
+        |    cbeebies   |     3     |                ['Anchor']                |        1.6         |
+        |      cbbc     |     3     |                ['Anchor']                |        1.6         |
+        |      food     |     3     |                ['Anchor']                |        1.6         |
+        |       tv      |     3     |                ['Anchor']                |        1.6         |
+        |     attack    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    knowing    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |     guilty    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |   seditious   |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |   conspiracy  |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |   copyright   |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |     serie     |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |     napoli    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    udinese    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |      tour     |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    premier    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    brighton   |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |      iii      |     3     |          ['H2', 'H3', 'Anchor']          |        10.6        |
+        |      soho     |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |     royal     |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    diamonds   |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |     videos    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |     change    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |   technology  |     3     |             ['H2', 'Anchor']             |        6.6         |
+        |    branson    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    embrace    |     3     |             ['H3', 'Anchor']             |        5.6         |
+        |    science    |     3     |                ['Anchor']                |        1.6         |
+        |   hollywood   |     3     |             ['H3', 'Anchor']             |        5.6         |
+        </pre>
+            </div>
+            <hr class ="new3"/>
+            <h4>(7) Final Keywords Output</h4>
+        
+            <hr class ="new3"/>
+            <pre> <code>
+              bbc
+              coronation
+              homepage
+              charles
+              iii
+              global
+              tech
+              news
+              sport
+              business
+            </code> </pre>
+            <hr class ="new3">
+            <h4>Result Drank Ends</h4>
+            
+            <hr class ="new3">
+            </div>
+
+
+
+    </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<section id="Webrank">
+  <div class="container">
+    <div class="content">
+
+      <div class="title">
+        <h2>WEBRANK </h2>       
+      </div>
+      <div class = "intro">
+      <h4  class = "introduction">Introduction</h4> 
+      <article><p> Workflow of the proposed ML-rank method is shown in Figure 3. The method has four modules: 1) preprocessing, 2) candidate generation, 3) feature extraction, 4) classifier training. We discuss each module separately as follow.
+        PREPROCESSING 
+       In this module, we first extract the text of the given webpage and then apply different natural language processing (NLP) based techniques to clean and filter the text. In the beginning, content of hypertext mark-up language (HTML) is downloaded using domain object model (DOM). DOM is a powerful tool and easy to implement. It forms tree structure of the HTML tags that makes easier to access the content of the web page [8]. The same downloaded content and the URL of the page are also given to the feature extraction module. 
+       Next, text cleaning and filtering functions are applied to the content. Filtering function filters out text that is part of cascade style sheet (CSS) and java script (JS). We trim them out because they are mainly used for the structure of the webpage which rarely contains useful content-related words. Special characters (such as , &, %) are also removed.
+       CANDIDATE GENERATION
+       After preprocessing, text is tokenized into unigram tokens. A token is a white space-separated words that is treated as a unit of text. We consider every unique token as a candidate keyword. In typical normalization process, the words would be stemmed or lemmatized to their root form from inflected form as in H-rank  For example, word cars after applying stemming function becomes car. But, sometimes stemming leaves unmeaningful words such as news as a new. We omit this step because it requires language models and we want to avoid excessive dependency on the language. 
+       However, we do remove tokens that are recognized as stopwords, which are frequent words (for, the, and) that appear in almost any text. This makes the method semi-dependent to language. We argue that stop word lists are widely available with limited resources from Wikipedia for example. This require language detection function, which provides the name of the language; and a list of the stopwords extracted from python language small libraries. The method removes stopwords of both the detected language and English language. This is because English language stopwords are commonly present in the HTML of all webpages. 
+       After these processing steps, we count frequencies of all remaining candidate words. 
+       Feature extraction
+       For each candidate word, we extract the following features:
+       <pre><code>
+       1.	H1 (binary feature specifying if word appears in 	h1 tag)
+       2.	H2 (appears in h2 tag)
+       3.	H3 (appears in h3 tag)
+       4.	H4 (appears in h4> tag)
+       5.	H5 (appears in h5 tag)
+       6.	H6 (appears in h6 tag)
+       7.	Anchor (appears in a> tag)
+       8.	Title (appears in title tag)
+       9.	Frequency (number of distinct occurrences in 	document)
+       10.	URL Host (appears in the host part of the URL)
+       11.	URL Query (appears later in the URL)
+       12.	 Page size (total number of words in document)
+      </code></pre>
+       
+       The last feature is the same value for every word, and it acts merely as a scaling factor for the frequency feature. For example, a frequency of 5 can be considered more important 
+       when document has 100 words but less important when the document has 10,000 words. In Drank [7], the features are weighted to compute a score for each word as follows:
+       
+       <code>Score=〖0.2f〗_1+〖6f〗_2+〖5f〗_3+〖4f〗_4+〖2f〗_(5-8)+〖5f〗_(9-10)+〖4f〗_11		(1)
+        if f_12≤50 and,
+           Score=〖0.5f〗_1+〖6f〗_2+〖5f〗_3+〖4f〗_4+〖2f〗_(5-8)+〖5f〗_(9-10)+〖4f〗_11		(2)
+        </code>
+        
+       otherwise, where f_(1-12) are the feature values. The highest scoring words are considered as the keywords. The number of keywords to be extracted depends on properties of the dataset and the ground truth information, agreed here as 10 for all datasets, except 5 for Mopsi Services (see Section IV). 
+       CLASSIFIER
+       In the proposed method, the weights are optimized in the training. We consider six alternative classifiers for this:
+       KNN
+       Decision tree 
+       Naïve Bayesian 
+       SVM
+       Random forest 
+       MLP 
+       We next compare the different classification methods. To test, we performed 5-fold cross validation, where each dataset was divided into 5 equal parts and 80% of the data was used to train and 20% to test. We optimized the decision tree using the entropy criterion and used the best splitting choice at each step. We found that k = 3 gives the best F-score for KNN after which the quality degrades steadily. Default parameters are used whenever possible as we want to have comparable results to the existing methods without overfitting the models too much.
+       </p></article>
+      <article><p>WebRank is a keyword extraction method specifically tailored to work on webpages by using features extracted from the Document Object Model (DOM). We used features like if a word is part of the URL, in the title, header tags or hyperlinks. We train a classifier using these features to decide whether a given word is can be considered as a keyword. We experiment using different classifiers and perform quantitative and qualitative analyses to evaluate the performance and usefulness of these features. Our method is supervised and language independent except the need for stop word list.</p></article>
+        </div>
+        
+        <div class="methodology">
+
+        <h4 class = "introduction">Methodology</h4> 
+        <article><p>
+          <img
+          src="./images/WebRank_workflow.PNG"
+          alt="WebRank"
+          width="900"
+          height="300"
+        />
+        <p>Fig. 3. Workflow of Webrank</p>
+        </p></article>
+      </div>
+      
+        <div class="implementation">
+        <h4 class = "introduction">Python implementaion</h4> 
+        <pre><code>----------------------------------------------------------------------------------------------------------------
+           1. Extract Text of webpage
+          ----------------------------------------------------------------------------------------------------------------
+          
+          def Scrapper1(element):
+              if element.parent.name in [UselessTagsText]:
+                  return False
+              if isinstance(element, Comment):
+                  return False
+              return True
+          
+          def Scrapper2(body):             
+              soup = BeautifulSoup(body, 'lxml')      
+              texts = soup.findAll(text=True)   
+              name =soup.findAll(name=True) 
+              visible_texts = filter(Scrapper1,texts)        
+              return u" ".join(t.strip() for t in visible_texts)
+          
+          def Scrapper3(text):                  
+              lines = (line.strip() for line in text.splitlines())    
+              chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+              return u'\n'.join(chunk for chunk in chunks if chunk)
+          
+          
+          def Scrapper_title_4(URL):
+            req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+            con = urllib.request.urlopen(req)
+            html= con.read()
+            title=[]
+            
+            soup = BeautifulSoup(html, 'lxml') 
+            title.append(soup.title.string)
+            return(title,urls)
+          
+          def Web_Funtion(URL):
+            req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+            con = urllib.request.urlopen(req)
+            html= con.read()  
+            Raw_HTML_Soup = BeautifulSoup(html, 'lxml') 
+           
+            raw =Scrapper2(html)
+            Raw_text = Scrapper3(raw) 
+            return(Raw_text,Raw_HTML_Soup) 
+          --------------------------------------------------------------------------------------------------------------------------
+           (2) Language Detection of Webpage Text
+          --------------------------------------------------------------------------------------------------------------------------
+          
+          def _calculate_languages_ratios(text):  
+              languages_ratios = {}
+              tokens = wordpunct_tokenize(text)
+              words = [word.lower() for word in tokens]    
+              for language in stopwords.fileids():
+                  stopwords_set = set(stopwords.words(language))
+                 
+                  words_set = set(words)
+                  common_elements = words_set.intersection(stopwords_set)
+          
+                  languages_ratios[language] = len(common_elements) 
+              return languages_ratios
+          
+          
+          
+          def detect_language(text):
+              ratios = _calculate_languages_ratios(text)
+              most_rated_language = max(ratios, key=ratios.get)
+              stop_words_for_language = set(stopwords.words(most_rated_language))
+              return most_rated_language,stop_words_for_language
+          --------------------------------------------------------------------------------------------------------------------------
+           (3) Preprocessing of Text
+          --------------------------------------------------------------------------------------------------------------------------
+          
+          
+          def Preprocessing_Text(Raw_text, stop_words_for_language):
+              
+               1 making text as a space seperated word list
+              stop_words_for_language = str(stop_words_for_language).lower()
+              Words_in_text =[]
+              for word in Raw_text.split():                    
+                  Words_in_text.append(word)
+          
+              
+               2 remove numbers and special charactes from words
+                  
+              alphawords_only = [word for word in Words_in_text if word.isalpha()]          
+              
+              3 removing length 1 words
+              
+              Words_afterRemoval_onelength = [word for word in alphawords_only if len(word)>1]
+          
+              4 lower case all words
+              
+              lower_case_only = [word.lower() for word in Words_afterRemoval_onelength ]
+              
+               Remove stopwords 
+              
+              stopwords_nltk = set(stopwords.words("English"))  
+              words_withoutStopwords = [word for word in lower_case_only if word not in stopwords_nltk]
+              if stop_words_for_language != "english":
+                  words_withoutStopwords = [word for word in words_withoutStopwords if word not in stop_words_for_language]
+              
+              removing words from common nouns like thank, use, gift, close
+              
+              words_withoutCommonNouns = [word for word in words_withoutStopwords if word not in Common_Nouns ]
+              
+              return list of preprocess words
+              
+              return (words_withoutCommonNouns)
+          -----------------------------------------------------------------------------------------------------
+           (4) Calculate Frequency of candidate words in text
+          -----------------------------------------------------------------------------------------------------
+          def Calc_words_frequency(Text_words):
+              
+              Sorted_WordCount_dict ={}  
+              word_and_fr_list=[]
+              Count_fr = Counter(Text_words)    
+              
+              for word,word_count in Count_fr.most_common():
+                  word_and_fr_list.append([word, word_count])
+                  Sorted_WordCount_dict[word]= word_count
+                  
+              return(Sorted_WordCount_dict)
+          ---------------------------------------------------------------------------
+           (5) FEATURES Formation
+           10 features: URL: host, query parts, Headers(h1--H6), Title tag, Anchor tag
+          -----------------------------------------------------------------------------
+          def Function_ParseURL(URL):
+              URL =str(URL)
+              host=[]
+              obj=urlparse(URL)    
+              name =(obj.hostname)
+              if len(name)>0:
+                  for x in name.split('.'):
+                      if x.lower() not in URL_CommonQueryWords:
+                          host.append(x)
+                  else:
+                      host.append(name)
+              path=[]
+              host_part_URL =[]
+                    
+              for url_parts in URL.split('/'):
+                  for url_part in url_parts.split('.'):            
+                      if (len(url_part)>0):
+                          for url_words in url_part.split('-'):
+                              if url_words.lower() not in URL_CommnWords and url_words.lower() not in host: 
+                                  path.append(url_words.lower())
+                      else:
+                          path.append(url_parts)                
+              return(host,path)
+          --------------------------------------------------------------------------------------------------
+          def function_TexDic_Filter(Tag_TextDic):
+              alt_words=[]
+              if len(Tag_TextDic) > 0:
+                  for k,i in Tag_TextDic.items():    
+             
+                      for x in i:
+                          word=[n for n in x.split(',')]
+                          for x in word:
+                              words=[i for i in x.split() ]
+                              for x in words:
+                                  alt_words.append(x)
+                  return(alt_words)
+              else:
+                  return(alt_words)
+              
+          def function_Tag_Text(Raw_HTML_Soup,Tag_name):
+              TagTextList=[]  
+              for text in Raw_HTML_Soup.find_all(Tag_name):
+                  tag_text = text.text.strip().lower()
+                  TagTextList.append(tag_text)
+              return TagTextList   
+          
+          def function_HeaderTitleAnchorText(Raw_HTML_Soup):    
+              H1_TextList = function_Tag_Text(Raw_HTML_Soup,'h1')
+              H2_TextList = function_Tag_Text(Raw_HTML_Soup,'h2')
+              H3_TextList= function_Tag_Text(Raw_HTML_Soup,'h3')
+              H4_TextList = function_Tag_Text(Raw_HTML_Soup,'h4')
+              H5_TextList = function_Tag_Text(Raw_HTML_Soup,'h5')
+              H6_TextList = function_Tag_Text(Raw_HTML_Soup,'h6')
+              Title_TextList = function_Tag_Text(Raw_HTML_Soup,'title')
+              Anchor_TextList = function_Tag_Text(Raw_HTML_Soup,'a')
+              return (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList)
+              
+              
+          def function_MakeDictTagText(Raw_HTML_Soup):
+               
+              (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList) = function_HeaderTitleAnchorText(Raw_HTML_Soup)
+                  
+              H1_TextDict = {}
+              H2_TextDict = {}
+              H1_TextDict = {}
+              H3_TextDict = {}
+              H4_TextDict = {}
+              H5_TextDict = {}
+              H6_TextDict= {}
+              Title_TextDict = {}
+              Anchor_TextDict = {}
+                  
+              H1_TextDict["h1"] = H1_TextList
+              H2_TextDict["h2"] = H2_TextList
+              H3_TextDict["h3"] = H3_TextList
+              H4_TextDict["h4"] = H4_TextList
+              H5_TextDict["h5"] = H5_TextList
+              H6_TextDict["h6"] = H6_TextList    
+              Title_TextDict["title"] = Title_TextList
+              Anchor_TextDict["a"] = Anchor_TextList
+              
+              H1_dic = function_TexDic_Filter(H1_TextDict)
+              H2_dic = function_TexDic_Filter(H2_TextDict)
+              H3_dic = function_TexDic_Filter(H3_TextDict)
+              H4_dic = function_TexDic_Filter(H4_TextDict)
+              H5_dic = function_TexDic_Filter(H5_TextDict)
+              H6_dic = function_TexDic_Filter(H6_TextDict)
+              Title_dic = function_TexDic_Filter(Title_TextDict)
+              Anchor_dic = function_TexDic_Filter(Anchor_TextDict)
+              
+              return (H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic)
+          ---------------------------------------------------------------------------------------------------------------
+          
+          def Feature_Score(candidate_word,feature_words,score):
+              total_score=0
+              score_single_time =0    
+              for word_feature in feature_words:        
+                  if word_feature ==candidate_word:            
+                      total_score+=score
+                      score_single_time = score                
+              return(score_single_time)
+                     
+          def Tf_Score(fr,text_length):
+              if text_length<50:
+                  tf_score =((fr/100)*50)
+              else:
+                  tf_score=((fr/100)*20) 
+              return (tf_score)   
+           -----------------------------------------------------------------------------------------------------------
+          def function_word_Fr_TagName_ScoreDic(words_count_dic, text_length):
+              wrd_fr_Tgs_Fnl_score =defaultdict()
+              Word_Final_Score =defaultdict()
+              
+              names of features 10
+              Name_FeaturesList =np.array(['H1', 'H2', 'H3','H4', 'H5', 'H6','Title','Anchor','URL-H','URL-Q'])
+              
+               Manual score for words
+              Manual_Score_Each_Features =np.array([6, 5, 4,3, 2, 2, 6, 1,5,4])
+              
+              
+              
+               Get all the words in features
+              
+              (H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic)= function_MakeDictTagText(Raw_HTML_Soup)
+              featuresText_allDict_npArrayList = np.array([H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic, Host_part_of_URL, Query_part_of_URL])
+             
+              
+              for word,fr in words_count_dic.items():
+                  tf_score = Tf_Score(fr,text_length)
+                  tag =[]
+                  name_tag =[]
+                         
+                  for word_inAll_Dic in range (len(featuresText_allDict_npArrayList)):
+                      if word in featuresText_allDict_npArrayList[word_inAll_Dic]:   
+                          tag.append(Manual_Score_Each_Features[word_inAll_Dic]) 
+                          name_tag.append(Name_FeaturesList[word_inAll_Dic])
+                  score= (sum(tag))
+                  score = score + tf_score
+                  Word_Final_Score[word] = score
+                  wrd_fr_Tgs_Fnl_score[word] = fr,name_tag,score
+              return (wrd_fr_Tgs_Fnl_score, Word_Final_Score)</code></pre>
+      </div>
+     
+      <div class="output">
+        <h4 class = "introduction">Output Section WebRank Exmple </h4> 
+        <div class="result">
+          <h5></h5>
+          <pre></pre>
+          <h5></h5>
+          <pre></pre>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<section id="Acirank">
+  <div class="container">
+    <div class="content">
+
+      <div class="title">
+        <h2>ACI-RANK </h2>       
+       
+      </div>
+      <div class = "intro">
+      <h4  class = "introduction">Introduction</h4> 
+      <article><p></p></article>
+        </div>
+       
+        <div class="methodology">
+
+        <h4 class = "introduction">Methodology</h4> 
+        <article><p></p></article>
+      </div>
+      
+        <div class="implementation">
+        <h4 class = "introduction">Python implementaion</h4> 
+        <pre><code>----------------------------------------------------------------------------------------------------------------
+           1. Extract Text of webpage
+          ----------------------------------------------------------------------------------------------------------------
+          
+          def Scrapper1(element):
+              if element.parent.name in [UselessTagsText]:
+                  return False
+              if isinstance(element, Comment):
+                  return False
+              return True
+          
+          def Scrapper2(body):             
+              soup = BeautifulSoup(body, 'lxml')      
+              texts = soup.findAll(text=True)   
+              name =soup.findAll(name=True) 
+              visible_texts = filter(Scrapper1,texts)        
+              return u" ".join(t.strip() for t in visible_texts)
+          
+          def Scrapper3(text):                  
+              lines = (line.strip() for line in text.splitlines())    
+              chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+              return u'\n'.join(chunk for chunk in chunks if chunk)
+          
+          
+          def Scrapper_title_4(URL):
+            req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+            con = urllib.request.urlopen(req)
+            html= con.read()
+            title=[]
+            
+            soup = BeautifulSoup(html, 'lxml') 
+            title.append(soup.title.string)
+            return(title,urls)
+          
+          def Web_Funtion(URL):
+            req = urllib.request.Request(URL, headers={'User-Agent' : "Magic Browser"})
+            con = urllib.request.urlopen(req)
+            html= con.read()  
+            Raw_HTML_Soup = BeautifulSoup(html, 'lxml') 
+           
+            raw =Scrapper2(html)
+            Raw_text = Scrapper3(raw) 
+            return(Raw_text,Raw_HTML_Soup) 
+          --------------------------------------------------------------------------------------------------------------------------
+           (2) Language Detection of Webpage Text
+          --------------------------------------------------------------------------------------------------------------------------
+          
+          def _calculate_languages_ratios(text):  
+              languages_ratios = {}
+              tokens = wordpunct_tokenize(text)
+              words = [word.lower() for word in tokens]    
+              for language in stopwords.fileids():
+                  stopwords_set = set(stopwords.words(language))
+                 
+                  words_set = set(words)
+                  common_elements = words_set.intersection(stopwords_set)
+          
+                  languages_ratios[language] = len(common_elements) 
+              return languages_ratios
+          
+          
+          
+          def detect_language(text):
+              ratios = _calculate_languages_ratios(text)
+              most_rated_language = max(ratios, key=ratios.get)
+              stop_words_for_language = set(stopwords.words(most_rated_language))
+              return most_rated_language,stop_words_for_language
+          --------------------------------------------------------------------------------------------------------------------------
+           (3) Preprocessing of Text
+          --------------------------------------------------------------------------------------------------------------------------
+          
+          
+          def Preprocessing_Text(Raw_text, stop_words_for_language):
+              
+               1 making text as a space seperated word list
+              stop_words_for_language = str(stop_words_for_language).lower()
+              Words_in_text =[]
+              for word in Raw_text.split():                    
+                  Words_in_text.append(word)
+          
+              
+               2 remove numbers and special charactes from words
+                  
+              alphawords_only = [word for word in Words_in_text if word.isalpha()]          
+              
+              3 removing length 1 words
+              
+              Words_afterRemoval_onelength = [word for word in alphawords_only if len(word)>1]
+          
+              4 lower case all words
+              
+              lower_case_only = [word.lower() for word in Words_afterRemoval_onelength ]
+              
+               Remove stopwords 
+              
+              stopwords_nltk = set(stopwords.words("English"))  
+              words_withoutStopwords = [word for word in lower_case_only if word not in stopwords_nltk]
+              if stop_words_for_language != "english":
+                  words_withoutStopwords = [word for word in words_withoutStopwords if word not in stop_words_for_language]
+              
+              removing words from common nouns like thank, use, gift, close
+              
+              words_withoutCommonNouns = [word for word in words_withoutStopwords if word not in Common_Nouns ]
+              
+              return list of preprocess words
+              
+              return (words_withoutCommonNouns)
+          -----------------------------------------------------------------------------------------------------
+           (4) Calculate Frequency of candidate words in text
+          -----------------------------------------------------------------------------------------------------
+          def Calc_words_frequency(Text_words):
+              
+              Sorted_WordCount_dict ={}  
+              word_and_fr_list=[]
+              Count_fr = Counter(Text_words)    
+              
+              for word,word_count in Count_fr.most_common():
+                  word_and_fr_list.append([word, word_count])
+                  Sorted_WordCount_dict[word]= word_count
+                  
+              return(Sorted_WordCount_dict)
+          ---------------------------------------------------------------------------
+           (5) FEATURES Formation
+           10 features: URL: host, query parts, Headers(h1--H6), Title tag, Anchor tag
+          -----------------------------------------------------------------------------
+          def Function_ParseURL(URL):
+              URL =str(URL)
+              host=[]
+              obj=urlparse(URL)    
+              name =(obj.hostname)
+              if len(name)>0:
+                  for x in name.split('.'):
+                      if x.lower() not in URL_CommonQueryWords:
+                          host.append(x)
+                  else:
+                      host.append(name)
+              path=[]
+              host_part_URL =[]
+                    
+              for url_parts in URL.split('/'):
+                  for url_part in url_parts.split('.'):            
+                      if (len(url_part)>0):
+                          for url_words in url_part.split('-'):
+                              if url_words.lower() not in URL_CommnWords and url_words.lower() not in host: 
+                                  path.append(url_words.lower())
+                      else:
+                          path.append(url_parts)                
+              return(host,path)
+          --------------------------------------------------------------------------------------------------
+          def function_TexDic_Filter(Tag_TextDic):
+              alt_words=[]
+              if len(Tag_TextDic) > 0:
+                  for k,i in Tag_TextDic.items():    
+             
+                      for x in i:
+                          word=[n for n in x.split(',')]
+                          for x in word:
+                              words=[i for i in x.split() ]
+                              for x in words:
+                                  alt_words.append(x)
+                  return(alt_words)
+              else:
+                  return(alt_words)
+              
+          def function_Tag_Text(Raw_HTML_Soup,Tag_name):
+              TagTextList=[]  
+              for text in Raw_HTML_Soup.find_all(Tag_name):
+                  tag_text = text.text.strip().lower()
+                  TagTextList.append(tag_text)
+              return TagTextList   
+          
+          def function_HeaderTitleAnchorText(Raw_HTML_Soup):    
+              H1_TextList = function_Tag_Text(Raw_HTML_Soup,'h1')
+              H2_TextList = function_Tag_Text(Raw_HTML_Soup,'h2')
+              H3_TextList= function_Tag_Text(Raw_HTML_Soup,'h3')
+              H4_TextList = function_Tag_Text(Raw_HTML_Soup,'h4')
+              H5_TextList = function_Tag_Text(Raw_HTML_Soup,'h5')
+              H6_TextList = function_Tag_Text(Raw_HTML_Soup,'h6')
+              Title_TextList = function_Tag_Text(Raw_HTML_Soup,'title')
+              Anchor_TextList = function_Tag_Text(Raw_HTML_Soup,'a')
+              return (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList)
+              
+              
+          def function_MakeDictTagText(Raw_HTML_Soup):
+               
+              (H1_TextList,H2_TextList,H3_TextList,H4_TextList,H5_TextList,H6_TextList,Title_TextList,Anchor_TextList) = function_HeaderTitleAnchorText(Raw_HTML_Soup)
+                  
+              H1_TextDict = {}
+              H2_TextDict = {}
+              H1_TextDict = {}
+              H3_TextDict = {}
+              H4_TextDict = {}
+              H5_TextDict = {}
+              H6_TextDict= {}
+              Title_TextDict = {}
+              Anchor_TextDict = {}
+                  
+              H1_TextDict["h1"] = H1_TextList
+              H2_TextDict["h2"] = H2_TextList
+              H3_TextDict["h3"] = H3_TextList
+              H4_TextDict["h4"] = H4_TextList
+              H5_TextDict["h5"] = H5_TextList
+              H6_TextDict["h6"] = H6_TextList    
+              Title_TextDict["title"] = Title_TextList
+              Anchor_TextDict["a"] = Anchor_TextList
+              
+              H1_dic = function_TexDic_Filter(H1_TextDict)
+              H2_dic = function_TexDic_Filter(H2_TextDict)
+              H3_dic = function_TexDic_Filter(H3_TextDict)
+              H4_dic = function_TexDic_Filter(H4_TextDict)
+              H5_dic = function_TexDic_Filter(H5_TextDict)
+              H6_dic = function_TexDic_Filter(H6_TextDict)
+              Title_dic = function_TexDic_Filter(Title_TextDict)
+              Anchor_dic = function_TexDic_Filter(Anchor_TextDict)
+              
+              return (H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic)
+          ---------------------------------------------------------------------------------------------------------------
+          
+          def Feature_Score(candidate_word,feature_words,score):
+              total_score=0
+              score_single_time =0    
+              for word_feature in feature_words:        
+                  if word_feature ==candidate_word:            
+                      total_score+=score
+                      score_single_time = score                
+              return(score_single_time)
+                     
+          def Tf_Score(fr,text_length):
+              if text_length<50:
+                  tf_score =((fr/100)*50)
+              else:
+                  tf_score=((fr/100)*20) 
+              return (tf_score)   
+           -----------------------------------------------------------------------------------------------------------
+          def function_word_Fr_TagName_ScoreDic(words_count_dic, text_length):
+              wrd_fr_Tgs_Fnl_score =defaultdict()
+              Word_Final_Score =defaultdict()
+              
+              names of features 10
+              Name_FeaturesList =np.array(['H1', 'H2', 'H3','H4', 'H5', 'H6','Title','Anchor','URL-H','URL-Q'])
+              
+               Manual score for words
+              Manual_Score_Each_Features =np.array([6, 5, 4,3, 2, 2, 6, 1,5,4])
+              
+              
+              
+               Get all the words in features
+              
+              (H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic)= function_MakeDictTagText(Raw_HTML_Soup)
+              featuresText_allDict_npArrayList = np.array([H1_dic, H2_dic, H3_dic, H4_dic, H5_dic, H6_dic, Title_dic, Anchor_dic, Host_part_of_URL, Query_part_of_URL])
+             
+              
+              for word,fr in words_count_dic.items():
+                  tf_score = Tf_Score(fr,text_length)
+                  tag =[]
+                  name_tag =[]
+                         
+                  for word_inAll_Dic in range (len(featuresText_allDict_npArrayList)):
+                      if word in featuresText_allDict_npArrayList[word_inAll_Dic]:   
+                          tag.append(Manual_Score_Each_Features[word_inAll_Dic]) 
+                          name_tag.append(Name_FeaturesList[word_inAll_Dic])
+                  score= (sum(tag))
+                  score = score + tf_score
+                  Word_Final_Score[word] = score
+                  wrd_fr_Tgs_Fnl_score[word] = fr,name_tag,score
+              return (wrd_fr_Tgs_Fnl_score, Word_Final_Score)</code></pre>
+      </div>
+      
+    
+  </div>
+</section>
+
+
+
+   
+    
+    </main>
+    <script src ="app.js"></script>
+  </body>
+</html>
