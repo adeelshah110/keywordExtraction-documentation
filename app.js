@@ -5,8 +5,8 @@ const impEl = document.querySelector(".implementation");
 function Methodology_function() {
   if (methodologyEl.style.display === "none") {
     methodologyEl.style.display = "block";
-    outputEl.style.display = "none";
-    impEl.style.display = "none";
+    //outputEl.style.display = "none";
+    //impEl.style.display = "none";
   } else {
     methodologyEl.style.display = "none";
   }
@@ -15,8 +15,8 @@ function Methodology_function() {
 function Output_function() {
   if (outputEl.style.display === "none") {
     outputEl.style.display = "block";
-    impEl.style.display = "none";
-    methodologyEl.style.display = "none";
+    //impEl.style.display = "none";
+    //methodologyEl.style.display = "none";
   } else {
     outputEl.style.display = "none";
   }
@@ -25,8 +25,8 @@ function Output_function() {
 function Implementation_function() {
   if (impEl.style.display === "none") {
     impEl.style.display = "block";
-    methodologyEl.style.display = "none";
-    outputEl.style.display = "none";
+    // methodologyEl.style.display = "none";
+    //outputEl.style.display = "none";
   } else {
     impEl.style.display = "none";
   }
