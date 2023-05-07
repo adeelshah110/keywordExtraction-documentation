@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   line-height: 1.4;
@@ -11,10 +13,11 @@ body {
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
 }
-/*Header stars*/
+
 a {
   text-decoration: none;
 }
+
 body {
   display: flex;
 }
@@ -23,30 +26,34 @@ header {
   min-height: 100vh;
   border: 1px solid #ccc;
 }
+
 nav h1 {
   font-size: 25px;
   font-weight: 500;
   padding: 10px;
   border: 1px solid #ccc;
 }
+
 nav ul {
   list-style: none;
 }
+
 nav ul li {
   padding: 10px;
   border: 1px solid #ccc;
   color: black;
 }
+
 nav ul li:hover {
   background: #ccc;
   transition: 0.3s ease-in-out;
 }
 
-/*main*/
 main {
   padding: 50px;
   max-width: 1200px;
 }
+
 section {
   margin-bottom: 50px;
 }
@@ -57,12 +64,13 @@ section article {
   flex-direction: column;
   gap: 20px;
 }
+
 section h2 {
   font-size: 25px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid grey;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  font-weight: 400px;
+  font-weight: 400;
 }
 
 .steps {
@@ -73,43 +81,23 @@ section h2 {
   align-items: center;
   justify-content: center;
 }
-.output_container {
-  font-size: 15px;
-  background-color: black;
-  align-items: center;
-  color: white;
-  text-align: justify;
-  padding: 10px 10px;
-}
-.output_example {
-  font-size: 15px;
-  background-color: black;
-  align-items: center;
-  color: white;
-  text-align: justify;
-  padding: 10px 10px;
-}
-.result {
-  display: flex;
-  justify-content: center;
-  color: yellow;
-  font-size: 20px;
-}
 
 @media (max-width: 480px) {
   body {
     flex-direction: column;
   }
+
   header {
     height: 200px;
     overflow: hidden;
     overflow-y: scroll;
   }
 }
+
 #keyowords {
   font-size: 24px;
   font-weight: bold;
-  color: yellowgreen;
+  color: white;
 }
 
 .showHideBtn {
@@ -127,6 +115,7 @@ section h2 {
   margin-top: 20px;
   color: brown;
 }
+
 .introduction {
   font-size: 16px;
   margin-top: 20px;
@@ -135,5 +124,41 @@ section h2 {
   font-weight: bold;
 }
 
-hr {
+/* Dashed red border */
+hr.new2 {
+  border-top: 0.5px dashed gray;
+}
+
+/* Dotted red border */
+hr.new3 {
+  border-top: 0.5px dotted grey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Thick red border */
+hr.new4 {
+  border-top: 2px solid gray;
+}
+
+/* Large rounded green border */
+hr.new5 {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+article {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+article p {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+pre code {
+  font-size: 20px;
+  font-weight: 300;
 }
