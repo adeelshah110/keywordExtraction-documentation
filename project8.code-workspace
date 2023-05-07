@@ -1,0 +1,15 @@
+{
+  "folders": [
+	{
+		"name": "project8",
+		"path": "."
+	},
+	{
+		"name": "images",
+		"path": "../../../Users/HIMAT/Downloads/images"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "project8"
+  }
+}
