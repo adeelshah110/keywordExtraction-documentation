@@ -111,7 +111,11 @@
                 is very important to have a general keyword extraction method that
                 can extract keywords without relying on any specific language.
               </p>
-  
+              <img src="./images/SindhUni.JPG" alt="Sindh"
+              
+              width="600"
+              height="300">
+  <p>Fig.1 Show challanges of multiple languages in a webpage</p>
               <p>
                 We try to address the challenges of keyword extraction by developing and
                 testing four new techniques, both language-dependent and
@@ -552,7 +556,12 @@
       are often far from optimal, and processing natural language
       documents remain challenging.
     </p>
+    <img src="./images/Sindh_Uni2.JPG" alt=""
+    alt="Sindh2"
+    width="600"
+    height="300">
     <p>
+      <p>Fig.3 Shows advertisement on a webpage</p>
       The D-rank method is an unsupervised method where the candidate
       keywords were ranked based on their position in the content after
       extracting their features from the DOM structure. The author tested
@@ -575,6 +584,7 @@
                   width="600"
                   height="300"/>
                 </p>
+                <p>Fig. 4 Shows workflow of Drank method</p>
             </article>
            
              <div class="title"><h3> (3) Python Implementation</h3></div>
@@ -2699,13 +2709,13 @@ End php></code></pre>
   
   
   def Tf_Score(fr,text_length):
-      if text_length<50:
+      if text_length < 50:
           tf_score =((fr/100)*50)
       else:
           tf_score=((fr/100)*20) 
       return (tf_score)
   
-  ####################################################################################################################
+  
   def Feature_Score(candidate_word,feature_words,score):
       total_score=0
       score_single_time =0
@@ -2825,7 +2835,7 @@ End php></code></pre>
             <article>
               
                 <p>
-                  In this Hrank section we  we will discuss four main parts:<br/>
+                  In this ACI-Rank section we  we will discuss four main parts:<br/>
                    (1) Introduction (2) Methodology:
                    (3) Python Implementation (4) Output Section 
                
@@ -2843,11 +2853,12 @@ End php></code></pre>
             <article>
               <p> Underprocess. 
                 <p>  <img
-                  src="./images/"
-                  alt="Dranks"
+                  src="./images/ACI_Rank_workFlow.PNG"
+                  alt="ACI-Rank"
                   width="600"
                   height="300"
                 />
+                <p>Fig. 6 Shows ACI-Rank workflow</p>
                 
             </article>
             <div class="title"><h3> (3) Python Implementation</h3></div>
