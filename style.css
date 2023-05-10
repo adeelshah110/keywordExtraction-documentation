@@ -15,8 +15,7 @@ body {
 }
 
 .top_title {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -27,12 +26,12 @@ body {
   align-items: center;
   margin: auto;
   padding: auto;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .top_content h3 {
-  margin-top: 1px;
-  margin-bottom: 1px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 header {
@@ -79,9 +78,9 @@ section {
 
 h2 {
   color: #2980b9;
-  font-size: 28px;
+  font-size: 36px;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .container {
@@ -97,7 +96,7 @@ h2 {
 }
 
 article {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
   color: #333;
 }
@@ -134,28 +133,29 @@ code {
 }
 
 .title h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   font-family: Arial, sans-serif;
   font-weight: 500;
 }
 
 hr.new3 {
-  border-top: 0.5px dotted grey;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border-top: 1px dotted grey;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
   .top_title {
-    font-size: 18px;
+    font-size: 20px;
   }
   nav li {
     margin: 0 5px;
   }
   h2 {
     font-size: 24px;
+    margin-bottom: 16px;
   }
   article {
     font-size: 16px;
@@ -163,6 +163,39 @@ hr.new3 {
   article p,
   li,
   p {
-    font-size: 18px;
+    font-size: 16px;
+  }
+}
+/* General styles */
+
+/* ... (previously provided styles) ... */
+
+.container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title h3 {
+  color: #2980b9;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  article {
+    font-size: 14px;
+  }
+
+  article p,
+  li,
+  p {
+    font-size: 16px;
   }
 }
